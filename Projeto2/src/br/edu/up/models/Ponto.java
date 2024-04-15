@@ -29,6 +29,9 @@ public void setY(Double y) {
     this.y = y;
 }
 
+public double calcularDistancia(Ponto outroPonto){
+    return Math.sqrt(Math.pow((this.x - outroPonto.x), 2)+Math.pow((this.y - outroPonto.y), 2));
+}
  
 
 }
