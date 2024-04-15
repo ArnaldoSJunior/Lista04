@@ -1,5 +1,8 @@
 package br.edu.up.controls;
 
+import br.edu.up.models.Livro;
+import br.edu.up.view.LivroView;
+
 public class LivroController {
     private Livro model;
     private LivroView view;
