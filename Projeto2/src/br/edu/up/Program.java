@@ -9,7 +9,9 @@ public class Program {
         Ponto ponto2 = new Ponto(2.0, 5.0);
         PontoView view = new PontoView();
         PontoController controller = new PontoController(ponto1, ponto2, view);
-        
+
+        controller.executarPrograma();
+
         
     }
 }
