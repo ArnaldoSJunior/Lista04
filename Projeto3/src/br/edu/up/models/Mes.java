@@ -6,8 +6,10 @@ public class Mes {
     private int numDias;
     private Dia[] dias;
 
-    public Mes(Dia[] dias) {
-        this.dias = dias;
-        this.numDias = dias.length; 
+    public Mes(int dias, String nome) {
+        this.numDias = dias;
+        this.dias = new Dia[dias];
+        this.nome = nome;
+
+    }
 }
- }

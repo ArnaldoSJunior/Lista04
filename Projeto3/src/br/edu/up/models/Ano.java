@@ -2,9 +2,9 @@ package br.edu.up.models;
 
 public class Ano {
 
-    private Int num;
+    private int num;
     private String nome;
-    private Int[] numDias;
+    private Dia[] numDias;
     private Mes[] meses;
-    
+  
 }
