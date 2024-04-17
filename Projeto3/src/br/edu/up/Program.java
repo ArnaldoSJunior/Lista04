@@ -5,8 +5,7 @@ import br.edu.up.views.DiaView;
 public class Program {
     public static void main(String[] args) throws Exception {
         System.out.println("Hello, World!");
-        Mes fev = new Mes(29, "Fevereiro");
-        fev.addCompromisso(12, 10, "Migas", "Universidade Positivo", "Prova de JAVA");
-        fev.addCompromisso(12, 10, "Migas", "Universidade Positivo", "Prova de JAVA");
+        Ano ano = new Ano(2024);
+        ano.addCompromisso(12, 11, 9, "Miguel Viapiana", "São Roque", "Nascimento do Miguel");
     }
 }

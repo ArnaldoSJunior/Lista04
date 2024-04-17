@@ -20,7 +20,6 @@ public class Mes {
             if (dias[dia-1] == null) {
                 dias[dia-1] = new Dia(dia);
                 dias[dia -1].addCompromisso(hora, pessoa, local, assunto);
-                view.notificarCompromissoRealizado(dia, hora, pessoa, local, assunto);
             }else{
                 view.notificarCompromissoJaAgendado(dia, hora);
             }
@@ -28,6 +27,7 @@ public class Mes {
             System.out.println("Dia inválida!!");
         }
     }
+
     public void consultarCompromisso(int dia, int hora){
         if (dia > 0 && dia<= numDias) {
             if (hora >=0 && hora<24) {
