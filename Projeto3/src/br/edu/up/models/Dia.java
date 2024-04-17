@@ -6,20 +6,18 @@ public class Dia {
     private int num;
     private int cont;
     private Compromisso[] compromissos;
-    private DiaView view;
+    private DiaView view = new DiaView();
 
-    public Dia(int num, DiaView view) {
+    public Dia(int num) {
         this.num = num;
         this.compromissos = new Compromisso[24];
         this.cont =0;
-        this.view = view;
     }
     public void addCompromisso(int hora, String pessoa, String local, String assunto){
             if(hora >= 0 && hora < 24){
                 if (compromissos[hora] == null) {
                     compromissos[hora] = new Compromisso(pessoa, local, assunto);
                     cont++;
-                    view.notificarCompromissoRealizado(hora, pessoa, local, assunto);
                 }else{
                     view.notificarCompromissoJaAgendado(hora);
                 }
