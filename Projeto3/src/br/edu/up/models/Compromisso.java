@@ -4,11 +4,13 @@ public class Compromisso {
     private String pessoa;
     private String local;
     private String assunto;
-    public Compromisso(String pessoa, String local, String assunto) {
+   
+    Compromisso(String pessoa, String local, String assunto) {
         this.pessoa = pessoa;
         this.local = local;
         this.assunto = assunto;
     }
+    
     public String getPessoa() {
         return pessoa;
     }
