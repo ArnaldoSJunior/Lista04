@@ -6,9 +6,10 @@ public class Ano {
 
     private int num;
     private String[] nomeMes;
-    private Dia[] numDias;
+    private Dia[] dias;
     private Mes[] meses;
     private AnoView view = new AnoView();
+
 
     public Ano(int num) {
         this.num = num;
@@ -43,13 +44,16 @@ public class Ano {
             System.out.println("Mês Inválido!!");
         }
     }
-    public void consultarCompromisso(int mes, int dia, int hora){
+
+
+    public String consultarCompromisso(int mes, int dia, int hora){
         if(mes >= 1 && mes <=12){
             if (dia > 0 && dia<= meses[mes-1].getNumDias()) {
                 if (hora >=0 && hora<24) {
                     if (meses[mes-1] != null) {
-                        System.out.println("Ano: " + this.num + " Mês: " + mes + " " + meses[mes - 1].consultarCompromisso(dia, hora));
-
+                            System.out.println(" Mês: "+mes+ " Ano: "+this.num+ meses[mes-1].consultarCompromisso(dia, hora));  
+                    }else{
+                       System.out.println("Compromisso não encontrado!!");
                     }
                 }else{
                     System.out.println("Hora Inválida!!");
@@ -60,6 +64,7 @@ public class Ano {
         }else{
             System.out.println("Mês Inválido!!");
         }
+        return "";
     }
 
 }

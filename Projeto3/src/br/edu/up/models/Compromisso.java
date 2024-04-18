@@ -29,7 +29,7 @@ public class Compromisso {
     }
     @Override
     public String toString() {
-        return "pessoa: " + pessoa + ", local: " + local + ", assunto: " + assunto + "";
+        return "Pessoa: " + pessoa + ", Local: " + local + ", Assunto: " + assunto + " ";
     }
     
 

@@ -9,6 +9,8 @@ public class Mes {
     private Dia[] dias;
     private MesView view = new MesView();
 
+    
+
     public Mes(int dias, String nome) {
         this.numDias = dias;
         this.dias = new Dia[dias];
@@ -28,16 +30,21 @@ public class Mes {
         }
     }
 
-    public void consultarCompromisso(int dia, int hora){
+    public String consultarCompromisso(int dia, int hora){
         if (dia > 0 && dia<= numDias) {
             if (hora >=0 && hora<24) {
-                System.out.println("Dia: "+ dia+ ""+ dias[dia-1].consultarCompromisso(hora));
+                if (dias[dia-1] != null) {              
+                        System.out.print("Dia: " + dia + dias[dia-1].consultarCompromisso(hora));
+                }else{  
+                    System.exit(dia);
+                }   
             }else{
                 System.out.println("Hora Inválida!!");
             }
         }else{
             System.out.println("Dia Inválido!!");
         }
+        return "";
     }
     public int getNumDias() {
         return numDias;

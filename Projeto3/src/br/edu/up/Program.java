@@ -7,5 +7,6 @@ public class Program {
         System.out.println("Hello, World!");
         Ano ano = new Ano(2024);
         ano.addCompromisso(12, 11, 9, "Miguel Viapiana", "São Roque", "Nascimento do Miguel");
+        ano.consultarCompromisso(12,11, 9);
     }
 }

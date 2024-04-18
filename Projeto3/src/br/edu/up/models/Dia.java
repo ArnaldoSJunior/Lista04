@@ -7,6 +7,7 @@ public class Dia {
     private int cont;
     private Compromisso[] compromissos;
     private DiaView view = new DiaView();
+  
 
     public Dia(int num) {
         this.num = num;
@@ -25,14 +26,20 @@ public class Dia {
                 System.out.println("Hora Inválida!!");
             }
     }
-    public Compromisso consultarCompromisso(int hora){
+
+    public String consultarCompromisso(int hora){
         if (hora >= 0 && hora < 24) {
-            System.out.println("Horario: "+hora+","+compromissos[hora]);
+            if (compromissos[hora] != null) {
+                System.out.print(compromissos[hora]+"Horario: "+hora+", ");
+
+            }else{
+                System.exit(hora);
+            }
         } else {
             System.out.println("Hora Inválida!!");
             return null;
         }
-        return null;
+        return "";
     }
 
     public void removerCompromisso(int hora){
@@ -52,5 +59,6 @@ public class Dia {
         }
         return compromissos; 
     }
+    
     
 }
