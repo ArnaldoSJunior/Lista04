@@ -43,5 +43,23 @@ public class Ano {
             System.out.println("Mês Inválido!!");
         }
     }
+    public void consultarCompromisso(int mes, int dia, int hora){
+        if(mes >= 1 && mes <=12){
+            if (dia > 0 && dia<= meses[mes-1].getNumDias()) {
+                if (hora >=0 && hora<24) {
+                    if (meses[mes-1] != null) {
+                        System.out.println("Ano: " + this.num + " Mês: " + mes + " " + meses[mes - 1].consultarCompromisso(dia, hora));
+
+                    }
+                }else{
+                    System.out.println("Hora Inválida!!");
+                }
+            }else{
+                System.out.println("Dia Inválido!!");
+            }
+        }else{
+            System.out.println("Mês Inválido!!");
+        }
+    }
 
 }

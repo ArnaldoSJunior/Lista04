@@ -39,4 +39,8 @@ public class Mes {
             System.out.println("Dia Inválido!!");
         }
     }
+    public int getNumDias() {
+        return numDias;
+    }
+    
 }
