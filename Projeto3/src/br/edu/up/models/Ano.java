@@ -39,7 +39,7 @@ public class Ano {
                 meses[mes - 1] = new Mes(31, nomeMes[mes - 1]);
             }
             meses[mes - 1].addCompromisso(dia, hora, pessoa, local, assunto);
-            view.notificarCompromissoRealizado(this.num, mes, dia, hora, pessoa, local, assunto);
+            System.out.println("Compromisso agendado");
         } else {
             System.out.println("Mês Inválido!!");
         }
@@ -51,7 +51,7 @@ public class Ano {
             if (dia > 0 && dia<= meses[mes-1].getNumDias()) {
                 if (hora >=0 && hora<24) {
                     if (meses[mes-1] != null) {
-                            System.out.println(" Mês: "+mes+ " Ano: "+this.num+ meses[mes-1].consultarCompromisso(dia, hora));  
+                            System.out.println(meses[mes-1].consultarCompromisso(dia, hora)+" Mês: "+mes+ " Ano: "+this.num);  
                     }else{
                        System.out.println("Compromisso não encontrado!!");
                     }

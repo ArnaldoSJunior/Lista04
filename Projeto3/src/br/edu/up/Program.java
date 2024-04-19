@@ -5,13 +5,12 @@ import br.edu.up.views.DiaView;
 public class Program {
     public static void main(String[] args) throws Exception {
         System.out.println("Hello, World!");
-        Ano ano = new Ano(2024);
-        ano.addCompromisso(12, 11, 9, "Miguel Viapiana", "São Roque", "Nascimento do Miguel");
-        ano.consultarCompromisso(12,11, 9);
-        Mes mes = new Mes(31, "Janeiro");
-        mes.addCompromisso(10, 10, "Arnaldo", "Faculdade", "Prova");
-        mes.consultarCompromisso(12,9);
-        mes.removerCompromisso(10, 10);
-        mes.consultarCompromisso(10, 10);
+        Mes mes = new Mes (28, "Fevereiro");
+        mes.addCompromisso(11, 15, "Migas", "Casa", "Dormir");
+        mes.consultarCompromisso(11,15);
+        mes.removerCompromisso(11, 16);
+        mes.consultarCompromisso(11,15);
+
+
     }
 }
