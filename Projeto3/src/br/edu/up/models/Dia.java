@@ -10,12 +10,12 @@ public class Dia {
 
     public Dia(int num) {
         this.num = num;
-        this.compromissos = new Compromisso[23];
+        this.compromissos = new Compromisso[24];
         this.cont = 0;
     }
 
     public void addCompromisso(int hora, String pessoa, String local, String assunto) {
-        if (hora >= 0 && hora < 24) {
+        if (hora >= 1 && hora < 24) {
             if (compromissos[hora-1] == null) {
                 compromissos[hora-1] = new Compromisso(pessoa, local, assunto);
                 cont++;
@@ -28,16 +28,15 @@ public class Dia {
     }
 
     public String consultarCompromisso(int hora) {
-        if (hora >= 0 && hora < 24) {
-            if (compromissos[hora-1] != null) {
+        if (hora >= 1 && hora < 24) {
+            if (compromissos[hora - 1] != null) {
                 return compromissos[hora-1] + "Horario: " + hora + ", ";
 
             } else {
-                System.out.println("Compromisso não encontrado!");
                 return "1";
             }
         } else {
-            System.out.println("Hora Inválida!!");
+            System.out.println("\nHora Inválida!");
             return null;
         }
     }
@@ -59,10 +58,9 @@ public class Dia {
     }
 
     public Compromisso[] listarCompromissos() {
-        System.out.println("--- Lista dos Compromissos --- ");
         for (int i = 0; i < 24; i++) {
             if (compromissos[i] != null) {
-                System.out.println("Hora: " + i + " " + compromissos[i]);
+                System.out.println("Hora: " + (i+1) + " " + compromissos[i]);
             }
         }
         return compromissos;

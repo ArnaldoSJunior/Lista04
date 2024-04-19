@@ -66,5 +66,41 @@ public class Ano {
         }
         return "";
     }
+    public void removerCompromisso(int mes, int dia, int hora){
+        if (mes >=1 && mes <=12) {
+            if (dia > 0 && dia <= meses[mes-1].getNumDias()) {
+                if (hora >=0 && hora < 24) {
+                    if (meses[mes - 1] != null) {
+                        meses[mes - 1].removerCompromisso(dia, hora);
+                        System.out.println("Compromisso excluído com sucesso");
+                    } else {
+                        System.out.println("Não há compromissos neste mês");
+                    }
+                }
+            }
+        }
+    }
+
+
+    public void listarCompromissosAgendados() {
+        System.out.println("Compromissos agendados para o ano " + num + ":");
+        for (int i = 0; i < meses.length; i++) {
+            if (meses[i] != null && meses[i].temCompromissos()) {
+                System.out.println("Mês: " + meses[i].getNomeMes());
+                meses[i].listarTodosCompromissos();
+                System.out.println(); // Adiciona uma linha em branco entre os meses
+            }
+        }
+    }
+    public void listarCompromissosAgendadosMes(int mes) {
+            if (meses[mes-1] != null && meses[mes-1].temCompromissos()) {
+            System.out.println("Mês: " + meses[mes-1].getNomeMes());
+            meses[mes-1].listarTodosCompromissos();
+            System.out.println(); // Adiciona uma linha em branco entre os meses
+        }
+    }
+
+    
+
 
 }
