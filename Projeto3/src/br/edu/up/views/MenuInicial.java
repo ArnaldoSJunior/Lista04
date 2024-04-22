@@ -90,38 +90,54 @@ public class MenuInicial {
             System.out.println("5. Encerrar Programa");
             System.out.println();
             opcao = leitor.nextInt();
+
+
         } while (opcao != 5);
+
         leitor.close();
         }
-
+        int opcao2;
         public void mostrarListarprodutos(){
+            do {
+                 System.out.println();
+                  System.out.println("-------------------------");
+                  System.out.println("   Listar Compromissos   ");
+                  System.out.println("-------------------------");
+                  System.out.println();
+                  System.out.println("Digite a opção desejada:");
+            
 
-            System.out.println();
-            System.out.println("-------------------------");
-            System.out.println("   Listar Compromissos   ");
-            System.out.println("-------------------------");
-            System.out.println();
-            System.out.println("Digite a opção desejada:");
-           
+                  System.out.println("1. Compromissos do mês ");
+                  System.out.println("2. Todos os compromissos");
+                  System.out.println();
 
-            System.out.println("1. Compromissos do mês ");
-            System.out.println("2. Todos os compromissos");
-            System.out.println();
-
-            int opcao2 = leitor.nextInt();
-            switch (opcao2) {
-                  case 1:{
-                         }      
-                         break;
-                  case 2:{
-                        System.out.println("Compromissos agendados para 2024!");
+                  opcao2 = leitor.nextInt();
+                  switch (opcao2) {
+                        case 1:{
+                              }      
+                              break;
+                        case 2:{
+                              System.out.println("Compromissos agendados para 2024!");
+                              
+                              }
+                              break;
+                        default:
+                              break;
                         
-                         }
-                        break;
-                  default:
-                        break;
-            }
-            leitor.close();
+                  }
+                  System.out.println("-------------------------");
+                  System.out.println("   Listar Compromissos   ");
+                  System.out.println("-------------------------");
+                  System.out.println();
+                  System.out.println("Digite a opção desejada:");
+                  
+                  System.out.println("1. Compromissos do mês ");
+                  System.out.println("2. Todos os compromissos");
+                  System.out.println("3. Voltar");
+                  System.out.println();
+                  opcao2 = leitor.nextInt(); 
+            } while (opcao2 != 3);
+            
         }
         
  }
