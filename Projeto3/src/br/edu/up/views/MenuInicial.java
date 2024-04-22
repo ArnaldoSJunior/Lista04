@@ -74,8 +74,20 @@ public class MenuInicial {
             System.out.println();
             opcao = leitor.nextInt();
         } while (opcao != 5);
-        
+        }
 
+        public void mostrarListarprodutos(){
 
-    }
+            System.out.println();
+            System.out.println("-------------------------");
+            System.out.println("   Listar Compromissos   ");
+            System.out.println("-------------------------");
+            System.out.println();
+            System.out.println("Digite a opção desejada:");
+           
+
+            System.out.println("1. Compromissos do mês ");
+            System.out.println("2. Todos os compromissos");
+            System.out.println();
+        }
  }
