@@ -5,12 +5,11 @@ import br.edu.up.views.*;
 
 public class ControleDeAgenda {
     private Ano model;
-    private AnoView view;
 
     
-    public ControleDeAgenda(Ano model, AnoView view){
+    public ControleDeAgenda(Ano model){
         this.model = model;
-        this.view = view;
+
     }
 
     public String addCompromisso(int mes, int dia, int hora, String pessoa, String local, String assunto){
@@ -18,12 +17,12 @@ public class ControleDeAgenda {
         return "Compromisso Realizado!!";
     }
 
-    public void consultarCompromisso(int mes, int dia, int hora){
+    public String consultarCompromisso(int mes, int dia, int hora){
         String str = model.consultarCompromisso(mes, dia, hora);
         if (str != null) {
-             view.mensagem(str);
+             return str;
         }else{
-            view.mensagem("Compromisso não encontrado!!");
+            return "Compromisso não encontrado!!";
         }
        
     }
@@ -31,6 +30,16 @@ public class ControleDeAgenda {
          
         
     }
+    public String removerCompromisso(int mes, int dia, int hora){
+        model.removerCompromisso(mes, dia, hora);
+        if(model.removerCompromisso(mes, dia, hora) != null){
+            return "Compromisso excluído com sucesso";
+        }else{
+            return "Compromisso não encontrado!!";
+        }
+
+    }
+    
     
 
 }

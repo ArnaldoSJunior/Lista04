@@ -37,7 +37,7 @@ public class Mes {
     public String consultarCompromisso(int dia, int hora) {
         if (dia > 0 && dia <= this.numDias) {
             if (hora >= 0 && hora < 24) {
-                if (dias[dia - 1] != null || dias[dia-1].consultarCompromisso(hora) != "1") {
+                if (dias[dia - 1] != null && dias[dia-1].consultarCompromisso(hora) != "1") {
                         return dias[dia - 1].consultarCompromisso(hora)  + "Dia: " + dia;
                 } else {
                     return "1";
