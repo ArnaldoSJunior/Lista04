@@ -8,4 +8,9 @@ public class AnoView {
     public void notificarCompromissoJaAgendado( int mes, int dia, int hora){
         System.out.println("Já existe um compromisso agendado para o mês de"+ mes+" às " + hora + "h. do dia: "+ dia);
     }
+    public void mensagem(String str){
+        System.out.println(str);
+    }
+
+    
 }

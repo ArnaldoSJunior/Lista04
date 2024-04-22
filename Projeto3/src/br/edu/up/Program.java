@@ -1,6 +1,7 @@
 package br.edu.up;
 import br.edu.up.models.*;
-import br.edu.up.views.DiaView;
+import br.edu.up.views.*;
+
 
 public class Program {
     public static void main(String[] args) throws Exception {
@@ -11,24 +12,9 @@ public class Program {
         //mes.addCompromisso(12, 16, "Migas", "Casa", "Jogar");
         
        // mes.listarTodosCompromissos();
+       MenuInicial menu = new MenuInicial();
+       menu.mostrar();
 
-
-        Ano ano = new Ano(2024);
-        ano.addCompromisso(1, 11, 15, "Migas", "Casa", "Dormir");
-        ano.addCompromisso(1, 11, 20, "Migas", "Casa", "Dormir");
-        ano.addCompromisso(1, 12, 15, "Migas", "Casa", "Dormir");
-        ano.addCompromisso(1, 12, 19, "Migas", "Casa", "Dormir");
-        ano.addCompromisso(3, 12, 16, "Migas", "Casa", "Jogar");
-        ano.addCompromisso(3, 18, 16, "Migas", "Casa", "Jogar");
-        System.out.println("--- Lista ---\n");
-        ano .listarCompromissosAgendados();
-
-        ano.removerCompromisso(1, 11, 15);
-        System.out.println("--- Lista --- \n");
-        ano .listarCompromissosAgendados();
-
-        System.out.println("--- Lista Mês Específico ---");
-        ano.listarCompromissosAgendadosMes(3);
 
         
        

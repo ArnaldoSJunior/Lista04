@@ -28,33 +28,22 @@ public class Mes {
                         dias[dia - 1] = new Dia(dia);
                     }
                     dias[dia - 1].addCompromisso(hora, pessoa, local, assunto);
-                    System.out.println("Compromisso agendado");
                 } else {
-                    view.notificarCompromissoJaAgendado(dia, hora);
                 }
-            } else {
-                System.out.println("Hora Inválida!!");
-            }
-        } else {
-            System.out.println("Dia inválida!!");
-        }
+            } 
+        } 
     }
     
     public String consultarCompromisso(int dia, int hora) {
         if (dia > 0 && dia <= this.numDias) {
             if (hora >= 0 && hora < 24) {
                 if (dias[dia - 1] != null || dias[dia-1].consultarCompromisso(hora) != "1") {
-                        System.out.print(dias[dia - 1].consultarCompromisso(hora)  + "Dia: " + dia);
-                    } else {
-                        System.out.println("Compromisso não encontrado!!");
-                        return "1";
-                    }
-            } else {
-                System.out.println("\nHora Inválida!!");
-            }
-        } else {
-            System.out.println("Dia Inválido!!");
-        }
+                        return dias[dia - 1].consultarCompromisso(hora)  + "Dia: " + dia;
+                } else {
+                    return "1";
+                }
+            } 
+        } 
         return "";
     }
 
@@ -62,27 +51,26 @@ public class Mes {
         return numDias;
     }
 
-    public void removerCompromisso(int dia, int hora) {
+    public String removerCompromisso(int dia, int hora) {
         if (dia > 0 && dia <= numDias) {
             if (hora >= 0 && hora < 24) {
                 if (dias[dia - 1] != null) {
                     if (dias[dia - 1].consultarCompromisso(hora) != "1") {
                         dias[dia - 1].removerCompromisso(hora);
 
-                        System.out.println("\nCompromisso removido");
                     } else {
-                        System.out.println(
-                                "\nNão há compromissos agendados para o dia " + dia + " as " + hora + " horas");
+                       return null;
                     }
                 } else {
-                    System.out.println("\nNão há compromissos agendados para o dia " + dia + " as " + hora + " horas");
+                    return null;
                 }
             } else {
-                System.out.println("Hora inválida.");
+               return null;
             }
         } else {
-            System.out.println("Dia inválido.");
+           return null;
         }
+        return "";
     }
     public boolean temCompromissos() {
         for (Dia dia : dias) {
@@ -92,14 +80,16 @@ public class Mes {
         }
         return false; // Se todos os dias forem nulos, não há compromissos
     }
-        public void listarTodosCompromissos() {
-            for (int i = 0; i < dias.length; i++) {
-                if (dias[i] != null) {
-                    System.out.println("Compromissos do dia " + (i + 1) + ":");
-                    dias[i].listarCompromissos();
-                }
+    public String listarTodosCompromissos() {
+        StringBuilder compromissosListados = new StringBuilder();
+        for (int i = 0; i < dias.length; i++) {
+            if (dias[i] != null) {
+                compromissosListados.append("Compromissos do dia ").append(i + 1).append(":\n");
+                compromissosListados.append(dias[i].listarCompromissos()).append("\n");
             }
         }
+        return compromissosListados.toString();
+    }
         public String getNomeMes() {
             return this.nome;
         }
