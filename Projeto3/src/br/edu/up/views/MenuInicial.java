@@ -2,6 +2,7 @@ package br.edu.up.views;
 import br.edu.up.controllers.*;
 import br.edu.up.models.*;
 import br.edu.up.views.*;
+import br.edu.up.Prompt;
 
 import java.util.Scanner;
 
@@ -35,14 +36,23 @@ public class MenuInicial {
             
             switch (opcao) {
             case 1:{
-                  System.out.println("--- Adicionar Compromisso ---");
-                  controller.addCompromisso(11, 5, 10, "Migas", "Casa", "Dormir");
-                  view.mensagem(controller.addCompromisso(11, 5, 10, "Migas", "Casa", "Dormir"));
+                  System.out.println("--- Adicionar Compromisso ---\n");
+                  int mes = Prompt.lerInteiro("Digite o mês: ");
+                  int dia = Prompt.lerInteiro("Digite o dia: ");
+                  int hora = Prompt.lerInteiro("Digite a hora: ");
+                  String pessoa = Prompt.lerLinha("Digite o nome da pessoa: ");
+                  String local = Prompt.lerLinha("Digite o local: ");
+                  String assunto = Prompt.lerLinha("Digite o assunto: ");
+                  controller.addCompromisso(mes, dia, hora, pessoa, local, assunto);
+                  view.mensagem(controller.addCompromisso(mes, dia,hora, pessoa, local, assunto));
             }
                   break;
             case 2:{    
                   System.out.println("--- Consultar Compromissos");
-                  controller.consultarCompromisso(11, 5, 10);
+                  int mes = Prompt.lerInteiro("Digite o mês: ");
+                  int dia = Prompt.lerInteiro("Digite o dia: ");
+                  int hora = Prompt.lerInteiro("Digite a hora: ");
+                  controller.consultarCompromisso(mes, dia, hora);
 
 
             }
