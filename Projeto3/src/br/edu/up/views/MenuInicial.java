@@ -13,7 +13,7 @@ public class MenuInicial {
 
 
       Scanner leitor = new Scanner(System.in);
-      ControleDeAgenda controller = new ControleDeAgenda(ano, view);
+      ControleDeAgenda controller = new ControleDeAgenda(ano);
 
       public void mostrar() {
 
@@ -53,11 +53,18 @@ public class MenuInicial {
                   int dia = Prompt.lerInteiro("Digite o dia: ");
                   int hora = Prompt.lerInteiro("Digite a hora: ");
                   controller.consultarCompromisso(mes, dia, hora);
+                  view.mensagem(controller.consultarCompromisso(mes, dia, hora));
 
 
             }
                   break;
              case 3:{
+                  System.out.println("--- Remover Compromisso ---");
+                  int mes = Prompt.lerInteiro("Digite o mês: ");
+                  int dia = Prompt.lerInteiro("Digite o dia: ");
+                  int hora = Prompt.lerInteiro("Digite a hora: ");
+                  controller.removerCompromisso(mes, dia, hora);
+                  view.mensagem(controller.removerCompromisso(mes, dia, hora));
 
             }
                   break; 

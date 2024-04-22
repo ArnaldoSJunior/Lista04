@@ -71,7 +71,6 @@ public class Ano {
                 if (hora >=0 && hora < 24) {
                     if (meses[mes - 1] != null) {
                         meses[mes - 1].removerCompromisso(dia, hora);
-                        return "Compromisso excluído com sucesso";
                     } else {
                         return null;
                     }
@@ -84,6 +83,7 @@ public class Ano {
         }else{
             return null;
         }
+        return "";
     }
 
 

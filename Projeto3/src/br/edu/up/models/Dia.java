@@ -32,7 +32,6 @@ public class Dia {
         if (hora >= 1 && hora < 24) {
             if (compromissos[hora - 1] != null) {
                 return compromissos[hora-1] + "Horario: " + hora + ", ";
-
             } else {
                 return "1";
             }
