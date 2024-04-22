@@ -52,7 +52,7 @@ public class MenuInicial {
             }
                   break; 
             case 4:{
-
+                  mostrarListarprodutos();
             }
                   break;
             default:
@@ -74,6 +74,7 @@ public class MenuInicial {
             System.out.println();
             opcao = leitor.nextInt();
         } while (opcao != 5);
+        leitor.close();
         }
 
         public void mostrarListarprodutos(){
@@ -89,5 +90,21 @@ public class MenuInicial {
             System.out.println("1. Compromissos do mês ");
             System.out.println("2. Todos os compromissos");
             System.out.println();
+
+            int opcao2 = leitor.nextInt();
+            switch (opcao2) {
+                  case 1:{
+                         }      
+                         break;
+                  case 2:{
+                        System.out.println("Compromissos agendados para 2024!");
+                        
+                         }
+                        break;
+                  default:
+                        break;
+            }
+            leitor.close();
         }
+        
  }

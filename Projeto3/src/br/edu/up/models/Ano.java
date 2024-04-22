@@ -88,11 +88,11 @@ public class Ano {
 
 
     public void listarCompromissosAgendados() {
-        System.out.println("Compromissos agendados para o ano " + num + ":");
+       
         for (int i = 0; i < meses.length; i++) {
             if (meses[i] != null && meses[i].temCompromissos()) {
                 meses[i].listarTodosCompromissos();
-                System.out.println(); // Adiciona uma linha em branco entre os meses
+                System.out.println(); 
             }
         }
     }
@@ -104,6 +104,6 @@ public class Ano {
     }
 
     
-
+   
 
 }

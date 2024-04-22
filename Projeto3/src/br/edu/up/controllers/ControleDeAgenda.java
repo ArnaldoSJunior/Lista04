@@ -27,7 +27,10 @@ public class ControleDeAgenda {
         }
        
     }
-    
+    public void listarTodosCompromissos(){
+         
+        
+    }
     
 
 }
