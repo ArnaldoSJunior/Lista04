@@ -33,17 +33,16 @@ public class Ano {
         meses[11] = new Mes(31, "Dezembro");
     }
 
-    public String addCompromisso(int mes, int dia, int hora, String pessoa, String local, String assunto) {
+    public void addCompromisso(int mes, int dia, int hora, String pessoa, String local, String assunto) {
         if (mes >= 1 && mes <= 12) {
             if (meses[mes - 1] == null) {
-                meses[mes - 1].addCompromisso(dia, hora, pessoa, local, assunto);
-            } else {
-            return null;
+                meses[mes - 1] = new Mes(31, nomeMes[mes - 1]);
+            }
+            meses[mes - 1].addCompromisso(dia, hora, pessoa, local, assunto);
+        } else {
+            return;
         }
-        return null;
     }
-        return "";
-}
 
 
     public String consultarCompromisso(int mes, int dia, int hora){
@@ -89,11 +88,11 @@ public class Ano {
 
 
     public void listarCompromissosAgendados() {
-       
+        System.out.println("Compromissos agendados para o ano " + num + ":");
         for (int i = 0; i < meses.length; i++) {
             if (meses[i] != null && meses[i].temCompromissos()) {
                 meses[i].listarTodosCompromissos();
-                System.out.println(); 
+                System.out.println(); // Adiciona uma linha em branco entre os meses
             }
         }
     }
@@ -105,6 +104,6 @@ public class Ano {
     }
 
     
-   
+
 
 }

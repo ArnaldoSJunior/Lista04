@@ -14,12 +14,7 @@ public class ControleDeAgenda {
 
     public String addCompromisso(int mes, int dia, int hora, String pessoa, String local, String assunto){
         model.addCompromisso(mes, dia, hora, pessoa, local, assunto);
-        if (model.addCompromisso(mes, dia, hora, pessoa, local, assunto) != null) {
-            return "Compromisso Realizado!!";
-        }else{
-            return "Compromisso ja existente!!";
-        }
-        
+        return "Compromisso Realizado!!";
     }
 
     public String consultarCompromisso(int mes, int dia, int hora){
@@ -30,10 +25,6 @@ public class ControleDeAgenda {
             return "Compromisso não encontrado!!";
         }
        
-    }
-    public void listarTodosCompromissos(){
-         
-        
     }
     public String removerCompromisso(int mes, int dia, int hora){
         model.removerCompromisso(mes, dia, hora);
@@ -48,3 +39,6 @@ public class ControleDeAgenda {
     
 
 }
+    
+
+

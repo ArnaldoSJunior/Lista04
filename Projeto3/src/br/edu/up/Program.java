@@ -10,7 +10,8 @@ public class Program {
        menu.mostrar();
 
 
-        
+        Ano ano = new Ano(2024);
+        ano.listarCompromissosAgendados();
        
         
 
