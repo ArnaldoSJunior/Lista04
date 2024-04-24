@@ -21,4 +21,8 @@ public class Vaga {
             ocupada = false;
         }
     }
+
+    public boolean ocupada(){
+        return ocupada;
+    }
 }
