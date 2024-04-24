@@ -29,7 +29,12 @@ public class Carro {
 
 
     public void setPlaca(String placa) {
-        this.placa = placa;
+        String[] placaSeparada = placa.split("-"); 
+        if (placaSeparada[0].length() == 3) {
+            if (placaSeparada[1].length() == 4) {
+                this.placa = placa;
+            }
+        }  
     }
 
 

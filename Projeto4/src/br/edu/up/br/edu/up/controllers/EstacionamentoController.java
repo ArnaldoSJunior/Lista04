@@ -7,9 +7,9 @@ public class EstacionamentoController {
 
   
     
-public void registrarEntrada(){
+    public void registrarEntrada(){
+        
 
 
-
-}
+    }
 }
