@@ -5,11 +5,5 @@ import br.edu.up.models.*;
 public class EstacionamentoController {
     
 
-  
-    
-public void registrarEntrada(){
-
-
-
-}
+ 
 }
