@@ -33,14 +33,17 @@ public class Ano {
         meses[11] = new Mes(31, "Dezembro");
     }
 
-    public void addCompromisso(int mes, int dia, int hora, String pessoa, String local, String assunto) {
+    public String addCompromisso(int mes, int dia, int hora, String pessoa, String local, String assunto) {
         if (mes >= 1 && mes <= 12) {
-            if (meses[mes - 1] == null) {
-                meses[mes - 1] = new Mes(31, nomeMes[mes - 1]);
+
+            if(meses[mes -1].consultarCompromisso(dia, hora) == "1"){
+                meses[mes - 1].addCompromisso(dia, hora, pessoa, local, assunto);
+                return "ok";
+            }else{
+                return null;
             }
-            meses[mes - 1].addCompromisso(dia, hora, pessoa, local, assunto);
         } else {
-            return;
+            return null;
         }
     }
 

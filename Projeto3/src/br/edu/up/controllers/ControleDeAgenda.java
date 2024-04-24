@@ -14,7 +14,13 @@ public class ControleDeAgenda {
 
     public String addCompromisso(int mes, int dia, int hora, String pessoa, String local, String assunto){
         model.addCompromisso(mes, dia, hora, pessoa, local, assunto);
-        return "Compromisso Realizado!!";
+        if (model.addCompromisso(mes, dia, hora, pessoa, local, assunto) != "ok") {
+            return "Compromisso Realizado!!";
+        }else{
+            return "Compromisso já realizado!!";
+        }
+        
+        
     }
 
     public String consultarCompromisso(int mes, int dia, int hora){
