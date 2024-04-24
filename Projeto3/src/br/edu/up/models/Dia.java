@@ -58,7 +58,7 @@ public class Dia {
         String compromissosListados = "";
         for (int i = 0; i < 24; i++) {
             if (compromissos[i] != null) {
-                compromissosListados += "Hora: " + (i+1) + " " + compromissos[i];
+                compromissosListados += "Hora: " + (i+1) + " " + compromissos[i]+ "\n";
             }
         }
         return compromissosListados.isEmpty() ? null : compromissosListados;

@@ -98,7 +98,7 @@ public class MenuInicial {
         }
         int opcao2;
         public void mostrarListarprodutos(){
-            do {
+            
                  System.out.println();
                   System.out.println("-------------------------");
                   System.out.println("   Listar Compromissos   ");
@@ -110,15 +110,19 @@ public class MenuInicial {
                   System.out.println("1. Compromissos do mês ");
                   System.out.println("2. Todos os compromissos");
                   System.out.println();
-
                   opcao2 = leitor.nextInt();
+            do {
                   switch (opcao2) {
                         case 1:{
+                  
+                              System.out.println("Digite o número do mês desejado: ");
+                              int mes = Prompt.lerInteiro();
+                              view.mensagem(controller.listarCompromissosDoMes(mes));
                               }      
                               break;
                         case 2:{
-                              System.out.println("Compromissos agendados para 2024!");
-                              
+                              System.out.println("Compromissos agendados para 2024!\n");
+                              view.mensagem(controller.listarTodosCompromissos());
                               }
                               break;
                         default:
