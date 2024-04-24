@@ -2,10 +2,10 @@ package br.edu.up.models;
 
 public class Vaga {
     
-    private int[] numero;
+    private int numero;
     private  Boolean ocupada;
 
-    public Vaga(int[] numero) {
+    public Vaga(int numero) {
         this.numero = numero;
         this.ocupada = false;
     }
