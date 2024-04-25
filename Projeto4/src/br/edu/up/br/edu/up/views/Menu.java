@@ -1,11 +1,15 @@
 package br.edu.up.views;
 
 import br.edu.up.Prompt;
+import br.edu.up.controllers.EstacionamentoController;
 import br.edu.up.models.Carro;
 import br.edu.up.models.Estacionamento;
 public class Menu {
+    EstacionamentoController controller = new EstacionamentoController();
+    Mensagem msg = new Mensagem();
    
     public void mostrar(){
+        Estacionamento est = new Estacionamento();
    
     
         System.out.println();
@@ -25,14 +29,18 @@ public class Menu {
         int opcao = Prompt.lerInteiro();
         do {
         switch (opcao) {
-            case 1:{
-                mostrarVagasDisponiveis();
-                }
-                 break;
+            case 1:
+                int vagasDisponiveis = est.vagasDisponiveis();
+                System.out.println("Vagas: " + vagasDisponiveis);
+
+                break; 
             case 2:{
-                Prompt.lerDecimal("Digite o modelo: ");
-                Prompt.lerDecimal("Digite a placa : ");
-                Prompt.lerDecimal("Digite a cor: ");
+                String modelo = Prompt.lerLinha("Digite o modelo: ");
+                String placa = Prompt.lerLinha("Digite a placa : ");
+                String cor = Prompt.lerLinha("Digite a cor: ");
+                controller.registrarEntrada(placa, modelo, cor);
+                msg.mensagem(controller.registrarEntrada(placa, modelo, cor));
+
                 }
                  break;
             case 3:{
@@ -69,13 +77,23 @@ public class Menu {
             default:
                 break;
         }
+        System.out.println();
+        System.out.println("-------------------------");
+        System.out.println("      MENU INICIAL"       );
+        System.out.println("-------------------------");
+        System.out.println();
+        System.out.println("Digite a opção desejada:");
+        System.out.println();
+    
+        System.out.println("1. Verificar vagas disponíveis");
+        System.out.println("2. Registrar entrada");
+        System.out.println("3. Registrar saída");
+        System.out.println("4. Emitir relatório");
+        System.out.println();
+    
+        opcao = Prompt.lerInteiro();
     } while (opcao != 5);
     }
-     public void mostrarVagasDisponiveis(){
-       Estacionamento novo = new Estacionamento();
-       novo.vagasDisponiveis();
-       System.out.println("Vagas: " + novo.vagasDisponiveis());
-     }
 
      
      
