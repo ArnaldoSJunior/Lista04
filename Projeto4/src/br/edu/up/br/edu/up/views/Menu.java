@@ -64,13 +64,22 @@ public class Menu {
                 int emitir = Prompt.lerInteiro();
                     switch (emitir) {
                         case 1:
-                        
+                        controller.finalizarPeriodo();
+                        System.out.println("------------ Relatório --------------");
+                        System.out.println("Quantidade de carros: " + controller.getContEntrada());
+                        System.out.println("Total: R$" + controller.finalizarPeriodo());
                             break;
                         case 2:
-                        
+                        controller.finalizarPeriodo();
+                        System.out.println("------------ Relatório --------------");
+                        System.out.println("Quantidade de carros: " + controller.getContEntrada());
+                        System.out.println("Total: R$" + controller.finalizarPeriodo());
                              break;
                         case 3:
-                        
+                        controller.finalizarPeriodo();
+                        System.out.println("------------ Relatório --------------");
+                        System.out.println("Quantidade de carros: " + controller.getContEntrada());
+                        System.out.println("Total: R$" + controller.finalizarPeriodo());
                              break;
                         case 4:{
                          mostrar();

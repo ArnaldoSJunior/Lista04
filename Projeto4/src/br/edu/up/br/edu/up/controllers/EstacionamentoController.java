@@ -2,14 +2,22 @@ package br.edu.up.controllers;
 
 import br.edu.up.models.*;
 
+
+
 public class EstacionamentoController {
+
+    private int contEntrada = 0;
+    
+
     Estacionamento est = new Estacionamento();
 
     public String registrarEntrada(String placa, String modelo, String cor) {
         int vagaDisponivel = est.encontrarVagaDisponivel();
         if (vagaDisponivel != -1) {
             est.getVagas(vagaDisponivel).ocuparVaga(placa, modelo, cor);
+            contEntrada++;
                 return  "OK";
+                
         } else {
             return "null";
         }
@@ -47,6 +55,16 @@ public class EstacionamentoController {
         }
         return 0;
     }
+    public Double finalizarPeriodo(){
+        Double valorFinal = contEntrada*5.00;
+        return valorFinal;
+    }
+
+    public int getContEntrada() {
+        return contEntrada;
+    }
+
+   
     
 }
  

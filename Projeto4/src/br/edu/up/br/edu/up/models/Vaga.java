@@ -8,6 +8,7 @@ public class Vaga {
     // private String carroModelo;
     private String carroPlaca;
     // private String carroCor;
+    
 
     public Vaga(int numero) {
         this.numero = numero;
@@ -19,6 +20,7 @@ public class Vaga {
         this.carro = new Carro(modelo, placa, cor);
         this.carroPlaca = carro.getPlaca();
         //carro.toString();
+        
     }
 
     public void liberarVaga(){
@@ -26,6 +28,7 @@ public class Vaga {
         this.carroPlaca = null;
         this.carro = null;
         }
+    
     
 
     public boolean ocupada(){
@@ -53,6 +56,8 @@ public class Vaga {
     public int getNumero() {
         return numero;
     }
+
+    
     
 
     
