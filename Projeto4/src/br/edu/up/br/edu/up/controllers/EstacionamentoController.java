@@ -6,22 +6,47 @@ public class EstacionamentoController {
     Estacionamento est = new Estacionamento();
 
     public String registrarEntrada(String placa, String modelo, String cor) {
-        int vagaDisponivel = encontrarVagaDisponivel();
+        int vagaDisponivel = est.encontrarVagaDisponivel();
         if (vagaDisponivel != -1) {
             est.getVagas(vagaDisponivel).ocuparVaga(placa, modelo, cor);
-            return "Entrada registrada com sucesso na vaga " + vagaDisponivel;
+                return  "OK";
         } else {
-            return "Não há vagas disponíveis no momento.";
+            return "null";
         }
     }
-    
-    private int encontrarVagaDisponivel() {
-        for (int i = 0; i < est.getTotalVagas(); i++) {
-            if (!est.getVagas(i).ocupada()) {
-                return i;
+
+    public String registarSaida(String placa){
+        for(int i = 0; i < 10; i++){
+            if (est.verificarPlaca(placa) != null && est.verificarPlaca(placa).equals("1")) {
+                if (est.getVagas(i).getCarroPlaca() != null && est.getVagas(i).getCarroPlaca().equals(placa)) {
+                    est.getVagas(i).liberarVaga();
+                    return "OK"; // Retorna "OK" se a placa for encontrada e a vaga for liberada
+                }
             }
         }
-        return -1; // Retorna -1 se não houver vagas disponíveis
+        return "OFF"; // Retorna "OFF" se a placa não for encontrada ou se a vaga não estiver ocupada por esse veículo
     }
+    
+
+
+    public int contarVagasDisponiveis() {
+        int contador = 0;
+        for (Vaga vaga : est.getVagas()) {
+            if (!vaga.ocupada()) { 
+                contador++; 
+            }
+        }
+        return contador;
+    }
+    public int consultarVaga(String placa){
+        for(int i=0; i<10; i++){
+            if (est.getVagas(i).getCarroPlaca().equals(placa)) {
+                return est.getVagas(i).getNumero();
+            }
+            
+        }
+        return 0;
+    }
+    
 }
  

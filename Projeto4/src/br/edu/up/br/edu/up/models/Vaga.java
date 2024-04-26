@@ -3,29 +3,30 @@ package br.edu.up.models;
 public class Vaga {
     
     private int numero;
-    private  Boolean ocupada;
+    private  Boolean ocupada = false;
     private Carro carro;
     // private String carroModelo;
-    // private String carroPlaca;
+    private String carroPlaca;
     // private String carroCor;
 
     public Vaga(int numero) {
         this.numero = numero;
-        this.ocupada = false;
     }
 
     public void ocuparVaga(String placa, String modelo, String cor){
-        if(ocupada != false){
-          ocupada = true;
-          carro = new Carro(modelo, placa, cor);
-        }
+
+        this.ocupada = true;
+        this.carro = new Carro(modelo, placa, cor);
+        this.carroPlaca = carro.getPlaca();
+        //carro.toString();
     }
 
     public void liberarVaga(){
-        if(ocupada){
-            ocupada = false;
+        this.ocupada = false;
+        this.carroPlaca = null;
+        this.carro = null;
         }
-    }
+    
 
     public boolean ocupada(){
         return ocupada;
@@ -34,5 +35,29 @@ public class Vaga {
     public Boolean getOcupada() {
         return ocupada;
     }
+    public String estaOcupado(){
+        if (ocupada == true) {
+            return "sim";
+        }
+        return "não";
+    }
+
+    public Carro getCarro() {
+        return carro;
+    }
+
+    public String getCarroPlaca() {
+        return carroPlaca;
+    }
+
+    public int getNumero() {
+        return numero;
+    }
+    
+
+    
+    
+
+    
     
 }

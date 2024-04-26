@@ -1,5 +1,4 @@
 package br.edu.up;
-import br.edu.up.models.*;
 import br.edu.up.views.Menu;
 public class App {
     public static void main(String[] args)  {

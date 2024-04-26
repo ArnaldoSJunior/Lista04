@@ -5,6 +5,7 @@ public class Estacionamento {
     private Vaga[] vagas;
     private int cont;
     private int totalVagas = 10;
+    private int vagaDisponivel;
 
 
     public Estacionamento() {
@@ -24,21 +25,39 @@ public class Estacionamento {
         vagas[9] = new Vaga(10);
     }
 
-    public int vagasDisponiveis(){
-        int cont = 0; // Inicialize o contador dentro do método
-        for(Vaga vaga : vagas){
-            if(vaga != null && !vaga.ocupada()){ // Verifique se a vaga não é nula antes de verificar se está ocupada
-                cont++;
-            }
-        }
-        return cont;
-    }
     public Vaga getVagas(int i) {
         return vagas[i];
     }
     public int getTotalVagas() {
         return totalVagas;
     }
+    public Vaga[] getVagas() {
+        return vagas;
+    }
+
+    public int encontrarVagaDisponivel() {
+        for (int i = 0; i < totalVagas; i++) {
+            if (!vagas[i].ocupada()) { // Se a vaga não estiver ocupada
+                this.vagaDisponivel = i;
+                return i; // Retorna o índice da primeira vaga disponível
+            }
+        }
+        return -1; // Retorna -1 se nenhuma vaga estiver disponível
+    }
+    public String verificarPlaca(String placa){
+        for(int i=0; i < 10; i++){
+            if (vagas[i].getCarroPlaca()!=null && vagas[i].getCarroPlaca().equals(placa)) {
+                return "1";
+            }
+        }
+        return null;
+    }
+    public int getVagaDisponivel() {
+        return vagaDisponivel;
+    }
+    
+    
+    
     
 
     

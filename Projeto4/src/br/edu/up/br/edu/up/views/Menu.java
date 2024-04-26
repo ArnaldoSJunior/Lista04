@@ -30,7 +30,7 @@ public class Menu {
         do {
         switch (opcao) {
             case 1:
-                int vagasDisponiveis = est.vagasDisponiveis();
+                int vagasDisponiveis = controller.contarVagasDisponiveis();
                 System.out.println("Vagas: " + vagasDisponiveis);
 
                 break; 
@@ -38,13 +38,21 @@ public class Menu {
                 String modelo = Prompt.lerLinha("Digite o modelo: ");
                 String placa = Prompt.lerLinha("Digite a placa : ");
                 String cor = Prompt.lerLinha("Digite a cor: ");
-                controller.registrarEntrada(placa, modelo, cor);
-                msg.mensagem(controller.registrarEntrada(placa, modelo, cor));
+                if (!controller.registrarEntrada(placa, modelo, cor).equals("null")) {
+                    msg.mensagem("Carro estacionado na vaga: "+ controller.consultarVaga(placa) );
+                }else{
+                    msg.mensagem("Vaga já ocupada!!");
+                }
 
                 }
                  break;
             case 3:{
-                Prompt.lerDecimal("Digite a placa : ");
+                String placa = Prompt.lerLinha("Digite a placa : ");
+                if (controller.registarSaida(placa).equals("OK")){
+                    msg.mensagem("Registro de saída realizado!!");
+                }else{
+                    msg.mensagem("Placa não encontrada ou erro de digitação");
+                }
             }break;
             case 4:{
                 System.out.println("Escolha o período: ");
