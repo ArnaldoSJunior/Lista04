@@ -66,19 +66,23 @@ public class Menu {
                         case 1:
                         controller.finalizarPeriodo();
                         System.out.println("------------ Relatório --------------");
-                        System.out.println("Quantidade de carros: " + controller.getContEntrada());
+                        System.out.println("Quantidade de entradas: " + controller.getContEntrada());
                         System.out.println("Total: R$" + controller.finalizarPeriodo());
+                        controller.setContEntrada(0);
+                        controller.carrosSegundoPeriodo();
+                        
                             break;
                         case 2:
                         controller.finalizarPeriodo();
                         System.out.println("------------ Relatório --------------");
-                        System.out.println("Quantidade de carros: " + controller.getContEntrada());
-                        System.out.println("Total: R$" + controller.finalizarPeriodo());
+                        System.out.println("Carros em segundo período: "+ controller.getCarrosSegundoPeriodo());
+                        System.out.println("Quantidade de entradas: " + controller.getContEntrada());
+                        System.out.println("Total: R$" + controller.finalizarPeriodoTarde());
                              break;
                         case 3:
                         controller.finalizarPeriodo();
                         System.out.println("------------ Relatório --------------");
-                        System.out.println("Quantidade de carros: " + controller.getContEntrada());
+                        System.out.println("Quantidade de entradas: " + controller.getContEntrada());
                         System.out.println("Total: R$" + controller.finalizarPeriodo());
                              break;
                         case 4:{

@@ -9,6 +9,7 @@ import br.edu.up.models.*;
 public class EstacionamentoController {
 
     private int contEntrada = 0;
+    private int carrosSegundoPeriodo;
     
 
     Estacionamento est = new Estacionamento();
@@ -65,12 +66,30 @@ public class EstacionamentoController {
         return valorFinal;
     }
 
+    public Double finalizarPeriodoTarde(){
+        double valorFinal = (contEntrada+ carrosSegundoPeriodo) * 5.00;
+        return valorFinal;
+    }
+
+    public int carrosSegundoPeriodo(){
+        this.carrosSegundoPeriodo = 10- contarVagasDisponiveis();
+        return carrosSegundoPeriodo;
+    }
+
     public int getContEntrada() {
         return contEntrada;
     }
-
-   
     
+    
+
+    public int getCarrosSegundoPeriodo() {
+        return carrosSegundoPeriodo;
+    }
+
+    public void setContEntrada(int contEntrada) {
+        this.contEntrada = contEntrada;
+    }
+
     public boolean validarPlaca(String placa){
         String[] partes = placa.split("-");
         if(partes.length != 2 || partes[0].length() != 3) {
