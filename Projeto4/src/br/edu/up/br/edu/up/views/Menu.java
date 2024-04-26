@@ -41,7 +41,7 @@ public class Menu {
                 if (!controller.registrarEntrada(placa, modelo, cor).equals("null")) {
                     msg.mensagem("Carro estacionado na vaga: "+ controller.consultarVaga(placa) );
                 }else{
-                    msg.mensagem("Vaga já ocupada!!");
+                    msg.mensagem("Vaga já ocupada ou dados inseridos incorretamente!!");
                 }
 
                 }

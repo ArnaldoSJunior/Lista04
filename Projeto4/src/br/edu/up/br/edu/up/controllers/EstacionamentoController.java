@@ -1,5 +1,7 @@
 package br.edu.up.controllers;
 
+import java.util.regex.Pattern;
+
 import br.edu.up.models.*;
 
 
@@ -14,10 +16,13 @@ public class EstacionamentoController {
     public String registrarEntrada(String placa, String modelo, String cor) {
         int vagaDisponivel = est.encontrarVagaDisponivel();
         if (vagaDisponivel != -1) {
-            est.getVagas(vagaDisponivel).ocuparVaga(placa, modelo, cor);
-            contEntrada++;
+            if (validarPlaca(placa) == true) {
+                contEntrada++;
+                est.getVagas(vagaDisponivel).ocuparVaga(placa, modelo, cor);
                 return  "OK";
-                
+            }else{
+                return "null";
+            }
         } else {
             return "null";
         }
@@ -66,5 +71,16 @@ public class EstacionamentoController {
 
    
     
+    public boolean validarPlaca(String placa){
+        String[] partes = placa.split("-");
+        if(partes.length != 2 || partes[0].length() != 3) {
+            return false;
+        }
+        // Verifica se a segunda parte consiste apenas em dígitos ou letras
+        if (!partes[1].matches("[0-9a-zA-Z]+")) {
+            return false;
+        }
+        return true;
+    }
 }
  
