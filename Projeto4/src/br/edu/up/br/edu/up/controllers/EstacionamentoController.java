@@ -75,6 +75,10 @@ public class EstacionamentoController {
         this.carrosSegundoPeriodo = 10- contarVagasDisponiveis();
         return carrosSegundoPeriodo;
     }
+    public double finalizarPeriodoNoite(){
+        double valorFinal = (contEntrada + carrosSegundoPeriodo) * 5.00;
+        return valorFinal;
+    }
 
     public int getContEntrada() {
         return contEntrada;

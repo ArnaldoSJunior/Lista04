@@ -1,6 +1,5 @@
 package br.edu.up.models;
 
-import br.edu.up.views.MesView;
 
 public class Mes {
 
@@ -9,7 +8,6 @@ public class Mes {
     private Dia[] dias;
     private Compromisso[] compromissos;
     private int cont;
-    private MesView view = new MesView();
 
     public Mes(int dias, String nome) {
         this.numDias = dias;

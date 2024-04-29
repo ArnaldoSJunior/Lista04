@@ -1,12 +1,10 @@
 package br.edu.up.models;
 
-import br.edu.up.views.DiaView;
-
 public class Dia {
     private int num;
     private int cont;
     private Compromisso[] compromissos;
-    private DiaView view = new DiaView();
+
 
     public Dia(int num) {
         this.num = num;

@@ -10,6 +10,7 @@ public class Menu {
    
     public void mostrar(){
         Estacionamento est = new Estacionamento();
+        int num= 1;
    
     
         System.out.println();
@@ -31,10 +32,12 @@ public class Menu {
         switch (opcao) {
             case 1:
                 int vagasDisponiveis = controller.contarVagasDisponiveis();
+                System.out.println("--- Vagas Disponíveis ---");
                 System.out.println("Vagas: " + vagasDisponiveis);
 
                 break; 
             case 2:{
+                System.out.println("--- Registrar Entrada ---");
                 String modelo = Prompt.lerLinha("Digite o modelo: ");
                 String placa = Prompt.lerLinha("Digite a placa : ");
                 String cor = Prompt.lerLinha("Digite a cor: ");
@@ -47,6 +50,7 @@ public class Menu {
                 }
                  break;
             case 3:{
+                System.out.println("--- Registrar Saída ---");
                 String placa = Prompt.lerLinha("Digite a placa : ");
                 if (controller.registarSaida(placa).equals("OK")){
                     msg.mensagem("Registro de saída realizado!!");
@@ -55,6 +59,8 @@ public class Menu {
                 }
             }break;
             case 4:{
+
+                System.out.println("--- Finalizar Período ---");
                 System.out.println("Escolha o período: ");
                 System.out.println("1. Manhã");
                 System.out.println("2. Tarde");
@@ -64,26 +70,49 @@ public class Menu {
                 int emitir = Prompt.lerInteiro();
                     switch (emitir) {
                         case 1:
-                        controller.finalizarPeriodo();
-                        System.out.println("------------ Relatório --------------");
-                        System.out.println("Quantidade de entradas: " + controller.getContEntrada());
-                        System.out.println("Total: R$" + controller.finalizarPeriodo());
-                        controller.setContEntrada(0);
-                        controller.carrosSegundoPeriodo();
+                        if (num == 1) {
+                            controller.finalizarPeriodo();
+                            System.out.println("\n------------ Relatório da Manhã --------------");
+                            System.out.println("Quantidade de entradas: " + controller.getContEntrada());
+                            System.out.println("Total: R$" + controller.finalizarPeriodo());
+                            controller.setContEntrada(0);
+                            controller.carrosSegundoPeriodo();
+                            num++;
+                        }else{
+                            System.out.println("Pedido para emitir relatorio inválido!!");
+                        }
+                        
                         
                             break;
                         case 2:
-                        controller.finalizarPeriodo();
-                        System.out.println("------------ Relatório --------------");
-                        System.out.println("Carros em segundo período: "+ controller.getCarrosSegundoPeriodo());
-                        System.out.println("Quantidade de entradas: " + controller.getContEntrada());
-                        System.out.println("Total: R$" + controller.finalizarPeriodoTarde());
+                        if (num ==2) {
+                            controller.finalizarPeriodo();
+                            System.out.println("------------ Relatório da Tarde --------------");
+                            System.out.println("Carros em segundo período: "+ controller.getCarrosSegundoPeriodo());
+                            System.out.println("Quantidade de entradas: " + controller.getContEntrada());
+                            System.out.println("Total: R$" + controller.finalizarPeriodoTarde());
+                            controller.setContEntrada(0);
+                            controller.carrosSegundoPeriodo();
+                            num++;
+                        }else{
+                            System.out.println("Pedido para emitir relatorio inválido!!");
+                        }
+                        
                              break;
                         case 3:
-                        controller.finalizarPeriodo();
-                        System.out.println("------------ Relatório --------------");
-                        System.out.println("Quantidade de entradas: " + controller.getContEntrada());
-                        System.out.println("Total: R$" + controller.finalizarPeriodo());
+                        if (num ==3) {
+                            controller.finalizarPeriodo();
+                            System.out.println("------------ Relatório da Noite --------------");
+                            System.out.println("Carros em segundo período: "+ controller.carrosSegundoPeriodo());
+                            System.out.println("Quantidade de entradas: " + controller.getContEntrada());
+                            System.out.println("Total: R$" + controller.finalizarPeriodoNoite());
+
+                            System.out.println("--- Dia Encerrado ---");
+                            System.exit(0);
+                            
+                        }else{
+                            System.out.println("Pedido para emitir relatorio inválido!!");
+                        }
                              break;
                         case 4:{
                          mostrar();
@@ -93,7 +122,6 @@ public class Menu {
                     default:
                         break;
                 }
-    
             }break;
             default:
                 break;
