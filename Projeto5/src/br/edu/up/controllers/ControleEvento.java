@@ -43,6 +43,53 @@ public class ControleEvento {
         }
         return "null";
     }
+    public String alterarNomeEvento(String nomeAntigo, String nomeNovo){
+        for (int i = 0; i < eventos.length; i++) {
+            if (eventos[i] != null && eventos[i].getNome().equals(nomeAntigo)) {
+                eventos[i].setNome(nomeNovo);
+                return "OK";
+            }
+        }
+        return "null";
+    }
+    public String alterarDataEvento(String dataAntiga, String dataNova){
+        for (int i = 0; i < eventos.length; i++) {
+            if (eventos[i] != null && eventos[i].getData().equals(dataAntiga)) {
+                eventos[i].setData(dataNova);;
+                return "OK";
+            }
+        }
+        return "null";
+
+    }
+    public String alterarLocalEvento(String localAntigo, String localNovo){
+        for (int i = 0; i < eventos.length; i++) {
+            if (eventos[i] != null && eventos[i].getLocal().equals(localAntigo)) {
+                eventos[i].setLocal(localNovo);
+                return "OK";
+            }
+        }
+        return "null";
+    }
+    public String alterarLotacaoEvento(int lotacaoAntiga, int lotacaoNova){
+        for (int i = 0; i < eventos.length; i++) {
+            if (eventos[i] != null && eventos[i].getLotacaoMax() == lotacaoAntiga) {
+                eventos[i].setLotacaoMax(lotacaoNova);
+                return "OK";
+            }
+        }
+        return "null";
+    }
+    public String alterarPrecoEvento(double precoAntigo, double precoNovo){
+        for (int i = 0; i < eventos.length; i++) {
+            if (eventos[i] != null && eventos[i].getPrecoIngresso() ==precoAntigo) {
+                eventos[i].setPrecoIngresso(precoNovo);
+                return "OK";
+            }
+        }
+        return "null";
+
+    }
 
 
 

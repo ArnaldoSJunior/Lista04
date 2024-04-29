@@ -47,6 +47,26 @@ public class Evento {
         return "Evento [nome=" + nome + ", data=" + data + ", local=" + local + ", lotacaoMax=" + lotacaoMax
                 + ", quantIngressosVendidos=" + quantIngressosVendidos + ", precoIngresso=" + precoIngresso + "]";
     }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public void setData(String data) {
+        this.data = data;
+    }
+
+    public void setLocal(String local) {
+        this.local = local;
+    }
+
+    public void setLotacaoMax(int lotacaoMax) {
+        this.lotacaoMax = lotacaoMax;
+    }
+
+    public void setPrecoIngresso(Double precoIngresso) {
+        this.precoIngresso = precoIngresso;
+    }
     
 
     
