@@ -15,9 +15,33 @@ public class Evento {
         this.data = data;
         this.local = local;
         this.lotacaoMax = lotacaoMax;
-        this.quantIngressosVendidos = quantIngressosVendidos;
         this.precoIngresso = precoIngresso;
     }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public String getData() {
+        return data;
+    }
+
+    public String getLocal() {
+        return local;
+    }
+
+    public int getLotacaoMax() {
+        return lotacaoMax;
+    }
+
+    public int getQuantIngressosVendidos() {
+        return quantIngressosVendidos;
+    }
+
+    public Double getPrecoIngresso() {
+        return precoIngresso;
+    }
+    
 
     
     

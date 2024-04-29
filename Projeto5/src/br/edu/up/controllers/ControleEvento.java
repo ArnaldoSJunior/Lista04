@@ -6,17 +6,6 @@ import br.edu.up.models.*;
 public class ControleEvento {
 
        Evento[] eventos = new Evento[10];
-    
-
-
-    public Evento[] getEventos() {
-        return eventos;
-    }
-
-
-    public void setEventos(Evento[] eventos) {
-        this.eventos = eventos;
-    }
 
 
 
@@ -28,6 +17,19 @@ public class ControleEvento {
             } 
         }
         return "null";
+    }
+
+    public String listagemDeEventos(){
+        StringBuilder res = new StringBuilder();
+        for(int i =0; i < eventos.length; i++){
+            if (eventos[i] != null) { 
+                res.append("\nNome do Evento: ").append(eventos[i].getNome()).append(", Local: ").append(eventos[i].getLocal()).append(", Data: ").append(eventos[i].getData()).append(" Lotação máxima: ").append(eventos[i].getLotacaoMax());
+            }
+        }
+        if (eventos.length ==0) {
+            res.append("Não há eventos adicionados!!");
+        }
+        return res.toString();
     }
 
 
