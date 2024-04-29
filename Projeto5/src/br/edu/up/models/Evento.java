@@ -41,6 +41,12 @@ public class Evento {
     public Double getPrecoIngresso() {
         return precoIngresso;
     }
+
+    @Override
+    public String toString() {
+        return "Evento [nome=" + nome + ", data=" + data + ", local=" + local + ", lotacaoMax=" + lotacaoMax
+                + ", quantIngressosVendidos=" + quantIngressosVendidos + ", precoIngresso=" + precoIngresso + "]";
+    }
     
 
     

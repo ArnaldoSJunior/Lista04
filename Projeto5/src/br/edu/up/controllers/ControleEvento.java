@@ -20,16 +20,28 @@ public class ControleEvento {
     }
 
     public String listagemDeEventos(){
+        int num = 0;
         StringBuilder res = new StringBuilder();
         for(int i =0; i < eventos.length; i++){
             if (eventos[i] != null) { 
                 res.append("\nNome do Evento: ").append(eventos[i].getNome()).append(", Local: ").append(eventos[i].getLocal()).append(", Data: ").append(eventos[i].getData()).append(" Lotação máxima: ").append(eventos[i].getLotacaoMax());
+                num++;
             }
         }
-        if (eventos.length ==0) {
+        if (num == 0) {
             res.append("Não há eventos adicionados!!");
         }
         return res.toString();
+    }
+
+    public String excluirEvento(String nome, String data, String local){
+        for(int i=0; i < eventos.length; i++){
+            if (eventos[i].getNome().equals(nome) && eventos[i].getData().equals(data) && eventos[i].getLocal().equals(local)) {
+                eventos[i] = null;
+                return "ok";
+            }
+        }
+        return "null";
     }
 
 

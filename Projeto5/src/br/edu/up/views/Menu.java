@@ -69,6 +69,16 @@ public class Menu {
                             break;}
                             
                         case 4:
+                            System.out.println("--- Excluir Evento ---");
+                            nome = Prompt.lerLinha("Nome: ");
+                            data = Prompt.lerLinha("Data: ");
+                            local = Prompt.lerLinha("Local: ");
+                            if (controllerEvento.excluirEvento(nome, data, local).equals("ok")) {
+                                msg.mensagem("Evento excluído com suscesso!!");
+                            }else{
+                                msg.mensagem("Erro ao excluir evento!!");
+                            }
+
                             
                             break;
                         default:
