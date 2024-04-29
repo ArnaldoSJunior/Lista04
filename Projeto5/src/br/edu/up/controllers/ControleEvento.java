@@ -6,14 +6,7 @@ import br.edu.up.models.*;
 public class ControleEvento {
 
        Evento[] eventos = new Evento[10];
-      
-       
-       
-
-    public ControleEvento(Evento[] eventos, Reserva[] reservas) {
-        this.eventos = eventos;
-
-    }
+    
 
 
     public Evento[] getEventos() {
@@ -27,20 +20,14 @@ public class ControleEvento {
 
 
 
-    public void incluirEvento(String nome, Data data, String local, int lotacaoMax, int quantIngressosVendidos,
-    Double precoIngresso){
-        
+    public String incluirEvento(String nome, String data, String local, int lotacaoMax, Double precoIngresso){
           for(int i = 0; i < 10; i++){
              if(eventos[i] == null){
-                eventos[i] = new Evento(nome, data, local, lotacaoMax, quantIngressosVendidos, precoIngresso);
+                eventos[i] = new Evento(nome, data, local, lotacaoMax, precoIngresso);
+                return "ok";
+            } 
         }
-    }
-
-    
-
-
-
-
+        return "null";
     }
 
 
