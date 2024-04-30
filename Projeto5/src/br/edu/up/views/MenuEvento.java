@@ -27,7 +27,8 @@ public class MenuEvento {
                 System.out.println("2. Alterar");
                 System.out.println("3. Listar");
                 System.out.println("4. Excluir");
-                    
+                System.out.println("5  Voltar ao MENU INICIAL");
+
                 escolha = Prompt.lerInteiro();
                 do {
                     switch (escolha) {
