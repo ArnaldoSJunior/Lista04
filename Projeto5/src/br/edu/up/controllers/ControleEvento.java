@@ -4,7 +4,6 @@ import javax.xml.crypto.Data;
 import br.edu.up.models.*;
 
 public class ControleEvento {
-
        Evento[] eventos = new Evento[10];
 
 
@@ -91,6 +90,37 @@ public class ControleEvento {
 
     }
 
+    public Evento[] getEventos() {
+        return eventos;
+    }
 
+    public String conferirNomeEvento(String nome){
+        for(int i=0; i< eventos.length; i++){
+            if (eventos[i] != null &&  eventos[i].getNome().equals(nome)) {
+                return "ok";
+            }
+        }
+        return "null";
+    }
+    public String conferirDataEvento(String data){
+        for(int i=0; i< eventos.length; i++){
+            if ( eventos[i] != null &&eventos[i].getData().equals(data)) {
+                return "ok";
+            }
+        }
+        return "null";
+    }
+
+    public String ingressosDisponiveis(String nome, int qtd){
+        for(int i=0; i < eventos.length; i++){
+            if ( eventos[i] != null && eventos[i].getNome().equals(nome)) {
+                if (qtd > eventos[i].getIngressosDisponiveis()) {
+                    eventos[i].setIngressosDisponiveis(eventos[i].getIngressosDisponiveis() - qtd);
+                    return "ok";
+                }
+            }
+        }
+        return "null";
+    }
 
 }

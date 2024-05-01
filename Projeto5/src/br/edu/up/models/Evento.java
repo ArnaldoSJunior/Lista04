@@ -7,7 +7,7 @@ public class Evento {
     private String data;
     private String local;
     private int lotacaoMax;
-    private int quantIngressosVendidos;
+    private int ingressosDisponiveis;
     private Double precoIngresso;
 
     public Evento(String nome, String data, String local, int lotacaoMax, Double precoIngresso) {
@@ -16,6 +16,7 @@ public class Evento {
         this.local = local;
         this.lotacaoMax = lotacaoMax;
         this.precoIngresso = precoIngresso;
+        this.ingressosDisponiveis = lotacaoMax;
     }
 
     public String getNome() {
@@ -33,19 +34,12 @@ public class Evento {
     public int getLotacaoMax() {
         return lotacaoMax;
     }
+    
 
-    public int getQuantIngressosVendidos() {
-        return quantIngressosVendidos;
-    }
+    
 
     public Double getPrecoIngresso() {
         return precoIngresso;
-    }
-
-    @Override
-    public String toString() {
-        return "Evento [nome=" + nome + ", data=" + data + ", local=" + local + ", lotacaoMax=" + lotacaoMax
-                + ", quantIngressosVendidos=" + quantIngressosVendidos + ", precoIngresso=" + precoIngresso + "]";
     }
 
     public void setNome(String nome) {
@@ -66,6 +60,14 @@ public class Evento {
 
     public void setPrecoIngresso(Double precoIngresso) {
         this.precoIngresso = precoIngresso;
+    }
+
+    public int getIngressosDisponiveis() {
+        return ingressosDisponiveis;
+    }
+
+    public void setIngressosDisponiveis(int ingressosDisponiveis) {
+        this.ingressosDisponiveis = ingressosDisponiveis;
     }
     
 
