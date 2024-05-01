@@ -1,9 +1,10 @@
+
 package br.edu.up.models;
 import javax.xml.crypto.Data;
 
 public class Reserva {
 
-   Evento[] eventos;
+   Evento eventos;
    private String nome;
    private int quantidadePessoas;
    private String dataReserva;

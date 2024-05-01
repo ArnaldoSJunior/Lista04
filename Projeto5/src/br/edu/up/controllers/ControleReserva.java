@@ -1,12 +1,10 @@
 package br.edu.up.controllers;
 
 import br.edu.up.models.*;
-import javax.xml.crypto.Data;
+
 
 public class ControleReserva {
-    ControleEvento controleEvento = new ControleEvento();
-    Reserva[] reservas = new Reserva[controleEvento.eventos.length];
-
+    Reserva[] reservas = new Reserva[10];
 
     public String incluirReserva( String nome, int quantidadePessoas, String data) {
         for (int i = 0; i < reservas.length; i++) {
