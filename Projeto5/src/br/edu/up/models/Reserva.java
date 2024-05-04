@@ -6,14 +6,24 @@ public class Reserva {
 
    Evento eventos;
    private String nome;
+   private String nomeEvento;
+   public String getNomeEvento() {
+      return nomeEvento;
+   }
+
+   public void setNomeEvento(String nomeEvento) {
+      this.nomeEvento = nomeEvento;
+   }
+
    private int quantidadePessoas;
    private String dataReserva;
    private Double valorTotal;
 
-   public Reserva(String nome, int quantidadePessoas, String dataReserva) {
+   public Reserva(String nome, int quantidadePessoas, String dataReserva, String nomeEvento) {
       this.nome = nome;
       this.quantidadePessoas = quantidadePessoas;
       this.dataReserva = dataReserva;
+      this.nomeEvento = nomeEvento;
    }
 
    public String getNome() {

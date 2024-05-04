@@ -4,7 +4,9 @@ import javax.xml.crypto.Data;
 import br.edu.up.models.*;
 
 public class ControleEvento {
-       Evento[] eventos = new Evento[10];
+    int tamanho =10;
+       Evento[] eventos = new Evento[tamanho];
+       
 
 
 
@@ -111,16 +113,24 @@ public class ControleEvento {
         return "null";
     }
 
-    public String ingressosDisponiveis(String nome, int qtd){
-        for(int i=0; i < eventos.length; i++){
-            if ( eventos[i] != null && eventos[i].getNome().equals(nome)) {
-                if (qtd > eventos[i].getIngressosDisponiveis()) {
-                    eventos[i].setIngressosDisponiveis(eventos[i].getIngressosDisponiveis() - qtd);
-                    return "ok";
+    public int verificarIngressosDisponiveis(String nome, int qtd) {
+        boolean eventoEncontrado = false;
+        for (int i = 0; i < tamanho; i++) {
+            if (eventos[i] != null && eventos[i].getNome().equals(nome)) {
+                eventoEncontrado = true;
+                if (eventos[i].getIngressosDisponiveis() <= qtd) {
+                    return 1; // Ingressos disponíveis
+                } else {
+                    return 0; // Ingressos insuficientes
                 }
             }
         }
-        return "null";
+        if (!eventoEncontrado) {
+            return -1; // Evento não encontrado
+        }
+        return 2; // Não deve chegar aqui, mas retorna 2 por precaução
     }
+    
+    
 
 }
