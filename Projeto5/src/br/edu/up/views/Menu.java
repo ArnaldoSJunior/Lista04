@@ -64,14 +64,14 @@ public class Menu {
                         String local = Prompt.lerLinha("Local: ");
                         int lotacaoMax = Prompt.lerInteiro("Lotação máxima: ");
                         Double precoIngresso = Prompt.lerDecimal("Preço do ingresso: ");
-                        if (controllerEvento.incluirEvento(nome, data, local, lotacaoMax, precoIngresso).equals("null")) {
-                            
+                        if (controllerEvento.validarData(data).equals("true")) {
+                            if (controllerEvento.incluirEvento(nome, data, local, lotacaoMax, precoIngresso).equals("null")) {
                             System.out.println("Falha ao adicionar evento!!");
-                        }else{
+                            }else{
                             System.out.println("Evento adicionada com suscesso!!");
+                            }
                         }
-                        
-                        
+                          
                         break;
                     case 2:
                         System.out.println("-------------------------");
@@ -237,15 +237,75 @@ public class Menu {
                             int quantidadePessoas = Prompt.lerInteiro("Digite a quantidade de pessoas da reserva: ");
                             String data = Prompt.lerLinha("Digite a data da reserva: ");
                             if (controllerEvento.conferirNomeEvento(nomeEvento).equals("ok")&& controllerEvento.conferirDataEvento(data).equals("ok")) {
-                                    if (controllReserva.incluirReserva( nome, quantidadePessoas, data, nomeEvento).equals("ok")) {
-                                        msg.mensagem("Reserva realizada com suscesso!!");
+                                if (controllerEvento.verificarEAtualizarIngressos(nomeEvento, quantidadePessoas) == 1) {
+                                    double valorIngresso = controllerEvento.pegarValorIngresso(nomeEvento);
+                                    if (controllReserva.incluirReserva( nome, quantidadePessoas, data, nomeEvento, valorIngresso).equals("ok")) {
+                                    msg.mensagem("Reserva realizada com suscesso!!");
                                     }else{
-                                        msg.mensagem("Falha ao realizar reserva[1]");
-                                    }    
+                                    msg.mensagem("Falha ao realizar reserva");
+                                    } 
                                 }else{
-                                msg.mensagem("Falha ao realizar reserva[3]");
+                                    msg.mensagem("Ingressos indisponíveis para a quantidade selecionada");
+                                } 
+                            }else{
+                                msg.mensagem("Dados do Evento inváliadas ou incorretas!!");
                             }
                             
+                        break;
+                        case 2:
+                            System.out.println("-------------------------");
+                            System.out.println("    MENU DE ALTERAÇÃO"    );
+                            System.out.println("-------------------------");
+                            System.out.println();
+                            System.out.println("Digite oque deseja alterar:");
+                            System.out.println();
+                        
+                            System.out.println("1. Nome do responsável");
+                            System.out.println("2. Quantidade de pessoas");
+                            System.out.println("3. Voltar");
+                            do {
+                                escolha = Prompt.lerInteiro();
+                                switch (escolha) {
+                                    case 1:
+                                        System.out.println("--- Alterar Nome ---");
+                                        String nomeAntigo =Prompt.lerLinha("Digite o nome do responsável antigo: ");
+                                        String nomeNovo = Prompt.lerLinha("Digite o nome do repsonsável novo: ");
+                                        if (controllReserva.alterarNomeResponsavel(nomeAntigo, nomeNovo).equals("ok")) {
+                                            msg.mensagem("Nome alterado com suscesso!!");
+                                        }else{
+                                            msg.mensagem("Falha ao alterar nome!!");
+                                        }
+                                        break;
+                                    case 2:
+                                        System.out.println("--- Alterar Quantidade de Pessoas ---");
+                                        int qtdAntigo = Prompt.lerInteiro("Digite a quantidade de pessoas antiga: ");
+                                        int qtdNovo = Prompt.lerInteiro("Digite a quantidade de pessoas nova: ");
+                                        nomeAntigo = Prompt.lerLinha("Digite o nome do responsável: ");
+                                        if (controllReserva.alterarQuantidadePessoas(qtdAntigo, qtdNovo).equals("ok")) {
+                                            for(int i=0; i< controllReserva.getReservas().length; i++){
+                                                if ( controllReserva.getReservas(i) != null && controllReserva.getReservas(i).getNome().equals(nomeAntigo)) {
+                                                    controllerEvento.retornarIngressos(controllReserva.getReservas(i).getNomeEvento(), (qtdAntigo-qtdNovo));
+                                                }
+                                            }
+                                            msg.mensagem("Quantidade de pessoas alterada com suscesso!!");
+                                        }else{
+                                            msg.mensagem("Falha ao alterar quantidade de pessoas!!");
+                                        }
+                                        break;
+                                    default:
+                                        break;
+                                }
+                            System.out.println("-------------------------");
+                            System.out.println("    MENU DE ALTERAÇÃO"    );
+                            System.out.println("-------------------------");
+                            System.out.println();
+                            System.out.println("Digite oque deseja alterar:");
+                            System.out.println();
+                        
+                            System.out.println("1. Nome do responsável");
+                            System.out.println("2. Quantidade de pessoas");
+                            System.out.println("3. Voltar");
+                            } while (escolha != 3);
                         break;
                         case 3:
                         msg.mensagem(controllReserva.listarReservas());    
@@ -254,21 +314,16 @@ public class Menu {
                         case 4:
                         System.out.println("--- Excluir Reserva ---");
                         nome = Prompt.lerLinha("Nome do responsável da reserva: ");
+                        int qtd = Prompt.lerInteiro("Quantidade de pessoas na reserva: ");
                         nomeEvento = Prompt.lerLinha("Nome do Evento: ");
                         String dataEvento = Prompt.lerLinha("Data da reserva: ");
-                        if (controllReserva.removerReserva(nomeEvento, nome, dataEvento).equals("ok")) {
+                        if (controllReserva.removerReserva(nomeEvento, nome, dataEvento, qtd).equals("ok")) {
+                            controllerEvento.retornarIngressos(nomeEvento, qtd);
                             System.out.println("Reserva excluída com suscesso!!");
                         }else{
                             System.out.println("Erro ao excluir reserva!!");
                         }
                          
-                        // data = Prompt.lerLinha("Data: ");
-                        // local = Prompt.lerLinha("Local: ");
-                        // if (controllerEvento.excluirEvento(nome, data, local).equals("ok")) {
-                        //     System.out.println("Evento excluído com suscesso!!");
-                        // }else{
-                        //     System.out.println("Erro ao excluir evento!!");
-                        // }
                         break;
                         case 5:
                             System.out.println();

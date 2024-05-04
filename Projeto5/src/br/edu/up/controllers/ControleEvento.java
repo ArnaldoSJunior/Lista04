@@ -25,7 +25,7 @@ public class ControleEvento {
         StringBuilder res = new StringBuilder();
         for(int i =0; i < eventos.length; i++){
             if (eventos[i] != null) { 
-                res.append("\nNome do Evento: ").append(eventos[i].getNome()).append(", Local: ").append(eventos[i].getLocal()).append(", Data: ").append(eventos[i].getData()).append(" Lotação máxima: ").append(eventos[i].getLotacaoMax());
+                res.append("\nNome do Evento: ").append(eventos[i].getNome()).append(", Local: ").append(eventos[i].getLocal()).append(", Data: ").append(eventos[i].getData()).append(" Lotação máxima: ").append(eventos[i].getLotacaoMax()).append(", Ingressos disponíveis: ").append(eventos[i].getIngressosDisponiveis());
                 num++;
             }
         }
@@ -113,23 +113,72 @@ public class ControleEvento {
         return "null";
     }
 
-    public int verificarIngressosDisponiveis(String nome, int qtd) {
-        boolean eventoEncontrado = false;
+    public int verificarEAtualizarIngressos(String nome, int qtd) {
         for (int i = 0; i < tamanho; i++) {
             if (eventos[i] != null && eventos[i].getNome().equals(nome)) {
-                eventoEncontrado = true;
-                if (eventos[i].getIngressosDisponiveis() <= qtd) {
-                    return 1; // Ingressos disponíveis
+                int ingressosDisponiveis = eventos[i].getIngressosDisponiveis();
+                if (ingressosDisponiveis >= qtd) {
+                    // Reduzir o número de ingressos disponíveis
+                    eventos[i].setIngressosDisponiveis(ingressosDisponiveis - qtd);
+                    return 1; // Ingressos disponíveis e atualizados
                 } else {
                     return 0; // Ingressos insuficientes
                 }
             }
         }
-        if (!eventoEncontrado) {
-            return -1; // Evento não encontrado
-        }
-        return 2; // Não deve chegar aqui, mas retorna 2 por precaução
+        return -1; // Evento não encontrado
     }
+
+    public double retornarIngressos(String nomeEvento, int qtd){
+        for(int i=0; i < eventos.length; i++){
+            if (eventos[i].getNome().equals(nomeEvento)) {
+                eventos[i].setIngressosDisponiveis(eventos[i].getIngressosDisponiveis() + qtd);
+                return 1;
+            }
+        }
+        return 0;
+    }
+
+    public double pegarValorIngresso(String nomeEvento){
+        for(int i=0; i < eventos.length; i++){
+            if (eventos[i].getNome().equals(nomeEvento)) {
+                return eventos[i].getPrecoIngresso();
+            }
+        }
+        return 0;
+    }
+    public String validarData(String data){
+        String[] partes = data.split("/");
+        
+        // Verificando se a data possui três partes
+        if (partes.length != 3)
+            return "false";
+        
+        try {
+            int dia = Integer.parseInt(partes[0]);
+            int mes = Integer.parseInt(partes[1]);
+            int ano = Integer.parseInt(partes[2]);
+            
+            // Verificando se o dia, mês e ano estão dentro dos limites aceitáveis
+            if (dia < 1 || dia > 31 || mes < 1 || mes > 12 || ano < 0)
+                return "false";
+            
+            // Verificando se o mês tem 30 ou 31 dias
+            if ((mes == 4 || mes == 6 || mes == 9 || mes == 11) && dia > 30)
+                return "false";
+            
+            // Verificando se o ano é bissexto
+            boolean bissexto = (ano % 4 == 0 && ano % 100 != 0) || (ano % 400 == 0);
+            if (mes == 2 && (dia > 29 || (dia == 29 && !bissexto)))
+                return "false";
+            
+            return "true";
+        } catch (NumberFormatException e) {
+            // Se não for possível converter para int, retorna falso
+            return "false";
+        }
+    }
+    
     
     
 
