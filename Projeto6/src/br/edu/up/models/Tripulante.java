@@ -4,5 +4,5 @@ public class Tripulante extends Pessoa {
 
     private int idAeronautica;
     private int matrculafunc;
-    
+    private Voo[] voos;
 }
