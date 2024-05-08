@@ -27,16 +27,16 @@ public class MenuPassageiro {
         do {
             switch (op) {
                 case 1:
-                    System.out.println("---Informe os dados do passageiro---");
-                    String nome = Prompt.lerLinha("Nome: ");
-                    int rg = Prompt.lerInteiro("Rg:");
-                    int idBagagem = Prompt.lerInteiro("ID Bagagem: ");
-                    String res = passageiro.adicionarPassageiro(nome, rg, idBagagem);
-                    if (res == "null") {
-                        System.out.println("[ERRO]");
-                    }else{
-                        System.out.println(res);
-                    }
+                    // System.out.println("---Informe os dados do passageiro---");
+                    // String nome = Prompt.lerLinha("Nome: ");
+                    // int rg = Prompt.lerInteiro("Rg:");
+                    // int idBagagem = Prompt.lerInteiro("ID Bagagem: ");
+                    // String res = passageiro.adicionarPassageiro(nome, rg, idBagagem);
+                    // if (res == "null") {
+                    //     System.out.println("[ERRO]");
+                    // }else{
+                    //     System.out.println(res);
+                    // }
                     break;
                 case 2:
                     iniciar.mostrar();
