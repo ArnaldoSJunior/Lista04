@@ -6,10 +6,9 @@ import br.edu.up.controllers.*;
 public class MenuTripulante {
     
     public void mostrarTripulante(){
-
         Menu iniciar = new Menu();
         ControleTripulante ctrlTripulante = new ControleTripulante();
-        
+
         System.out.println();
         System.out.println("-------------------------");
         System.out.println("      MENU TRIPULANTE"    );
@@ -21,8 +20,8 @@ public class MenuTripulante {
         System.out.println("1. Comandantes");
         System.out.println("2. Comissários");
         System.out.println("3. Listar Tripulantes");
-        System.out.println("4. Encerrar");
-        System.out.println("5. Voltar ao Menu Inicial");
+        System.out.println("4. Voltar ao Menu Inicial");
+        System.out.println("5. Encerrar");
     
         int op = Prompt.lerInteiro();
         do {
@@ -80,8 +79,8 @@ public class MenuTripulante {
             System.out.println("1. Comandantes");
             System.out.println("2. Comissários");
             System.out.println("3. Listar Tripulantes");
-            System.out.println("4. Encerrar");
-            System.out.println("5. Voltar ao Menu Inicial");
+            System.out.println("4. Voltar ao Menu Inicial");
+            System.out.println("5. Encerrar");
         
             op = Prompt.lerInteiro();
         
