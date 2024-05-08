@@ -1,12 +1,12 @@
 package br.edu.up.views;
 
 import br.edu.up.Prompt;
-import br.edu.up.controllers.ControleTripulante;
+import br.edu.up.controllers.*;
 
 public class Menu {
 
     ControleTripulante ctrlTripulante = new ControleTripulante();
-
+    ControlePassageiro ctrlPassageiro = new ControlePassageiro();
     
 
     public void mostrar(){
@@ -41,7 +41,21 @@ public class Menu {
                 do {
                     switch (op) {
                         case 1:
-                            
+                            System.out.println("--- Registar Passageiro ---");
+                            //String nome, int rg, int idBagagem, String acento, String classe, String data, String voo
+                            String nome = Prompt.lerLinha("Digite o nome do passageiro: ");
+                            int rg = Prompt.lerInteiro("Digite o RG do passageiro: ");
+                            int idBagagem = Prompt.lerInteiro("Digie o ID da bagagem: ");
+                            String acento = Prompt.lerLinha("Digite o seu acento: ");
+                            String classe = Prompt.lerLinha("Digite a classe do acento: ");
+                            String data = Prompt.lerLinha("Digite a data da viagem: ");
+                            String voo = Prompt.lerLinha("Digie o voo: ");
+                            String res = ctrlPassageiro.adicionarPassageiro(nome, rg, idBagagem, acento, classe, data, voo);
+                            if (res.equals("null")) {
+                                System.out.println("[ERRO]");
+                            }else{
+                                System.out.println(res);
+                            }
                             break;
                         case 2:
                             mostrar();
