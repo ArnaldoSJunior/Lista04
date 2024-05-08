@@ -27,7 +27,7 @@ public class Passageiro extends Pessoa {
   public String toString() {
       super.getNome();
       super.getRg();
-    
+      getIdBagagem();
       return super.toString();
   }
 }
