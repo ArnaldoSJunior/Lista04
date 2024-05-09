@@ -2,11 +2,14 @@ package br.edu.up.views;
 
 import br.edu.up.Prompt;
 import br.edu.up.controllers.*;
+import br.edu.up.models.*;
 
 public class Menu {
 
     ControleTripulante ctrlTripulante = new ControleTripulante();
     ControlePassageiro ctrlPassageiro = new ControlePassageiro();
+    Aeronave aeronave = new Aeronave();
+    Data data = new Data();
     
 
     public void mostrar(){
@@ -21,7 +24,8 @@ public class Menu {
 
         System.out.println("1. Menu Passageiros");
         System.out.println("2. Menu Tripulantes");
-        System.out.println("3. Encerrar");
+        System.out.println("3. Listar pessoas do Voo");
+        System.out.println("4. Encerrar");
         int op = Prompt.lerInteiro();
         switch (op) {
             case 1:
@@ -35,7 +39,8 @@ public class Menu {
             
                 System.out.println("1. Cadastrar Passageiro");
                 System.out.println("2. Voltar ao Menu Inicial");
-                System.out.println("3. Encerrar");
+                System.out.println("3. Listar Passageiros");
+                System.out.println("4. Encerrar");
             
                 op = Prompt.lerInteiro();
                 do {
@@ -48,9 +53,7 @@ public class Menu {
                             int idBagagem = Prompt.lerInteiro("Digie o ID da bagagem: ");
                             String acento = Prompt.lerLinha("Digite o seu acento: ");
                             String classe = Prompt.lerLinha("Digite a classe do acento: ");
-                            String data = Prompt.lerLinha("Digite a data da viagem: ");
-                            String voo = Prompt.lerLinha("Digie o voo: ");
-                            String res = ctrlPassageiro.adicionarPassageiro(nome, rg, idBagagem, acento, classe, data, voo);
+                            String res = ctrlPassageiro.adicionarPassageiro(nome, rg, idBagagem, acento, classe);
                             if (res.equals("null")) {
                                 System.out.println("[ERRO]");
                             }else{
@@ -61,6 +64,9 @@ public class Menu {
                             mostrar();
                             break;
                         case 3:
+                            System.out.println(ctrlPassageiro.listarPassageiros());
+                        break;
+                        case 4:
                             System.exit(0);
                             break;
                         default:
@@ -77,10 +83,11 @@ public class Menu {
                 
                 System.out.println("1. Cadastrar Passageiro");
                 System.out.println("2. Voltar ao Menu Inicial");
-                System.out.println("3. Encerrar");
+                System.out.println("3. Listar todas as pessoas do voo");
+                System.out.println("4. Encerrar");
             
                 op = Prompt.lerInteiro();
-                } while (op != 3);
+                } while (op != 4);
                 System.exit(0);
             break;
             case 2:
@@ -163,6 +170,15 @@ public class Menu {
                 } while (op != 5);
             break;
             case 3:
+                System.out.println("--- Lista das pessoas do Voo ---");
+                System.out.println("\nAeronave: \nModelo: "+ aeronave.getTipo()+"\nQuantidade de assentos: "+ aeronave.getQuantAssentos()+"\nCódigo de Voo: "+aeronave.getCodigo());
+                System.out.println("\nData do voo:  "+data.getDia()+"/"+data.getMes()+"/"+data.getAno()+" as "+data.getHora()+":"+data.getMinuto());
+                System.out.println("\n\n--- Passageiros ---");
+                System.out.println(ctrlPassageiro.listarPassageiros());
+                System.out.println("\n\n--- Tripulação ---");
+                System.out.println(ctrlTripulante.listarTripulantes());
+            break;
+            case 4:
                 System.exit(0);
             break;
             default:

@@ -1,27 +1,26 @@
 package br.edu.up.models;
 
 public class Passagem {
+    Data data = new Data();
+    Voo voo = new Voo();
 
     private String nomePassageiro;
-    private String acento;
+    private String assento;
     private String classe;
-    private String datas;
-    private String voos;
    
-    public Passagem(String nome, String acento, String classe, String datas, String voos) {
+    public Passagem(String nome, String assento, String classe) {
         this.nomePassageiro = nome;
-        this.acento = acento;
+        this.assento = assento;
         this.classe = classe;
-        this.datas = datas;
-        this.voos = voos;
+
     }
 
-    public String getAcento() {
-        return acento;
+    public String getAssento() {
+        return assento;
     }
 
-    public void setAcento(String acento) {
-        this.acento = acento;
+    public void setAssento(String acento) {
+        this.assento = acento;
     }
 
     public String getClasse() {
@@ -39,7 +38,7 @@ public class Passagem {
 
     @Override
     public String toString() {
-        return "Passagem [acento=" + acento + ", classe=" + classe + ", datas=" + datas + ", voos=" + voos + "]";
+        return "Passagem=  [assento=" + assento + ", classe=" + classe + ", " + data.toString()+ ", " +voo.toString()+ "";
     }
     
 

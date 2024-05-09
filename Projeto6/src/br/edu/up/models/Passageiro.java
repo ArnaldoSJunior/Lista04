@@ -15,10 +15,10 @@ public class Passageiro extends Pessoa {
         this.idBagagem = idBagagem;
        
     }
-    public String registrarPassagem(String nome, String acento, String classe, String data, String voo){
+    public String registrarPassagem(String nome, String acento, String classe){
         for(int i =0;i < 6; i++){
             if (passagens[i] == null) {
-                passagens[i] = new Passagem(nome, acento, classe, data, voo);
+                passagens[i] = new Passagem(nome, acento, classe);
                 return "ok";
 
             }
