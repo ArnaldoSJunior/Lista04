@@ -34,8 +34,7 @@ public void mostrarMenuAluno(){
             registrarAluno();
             break;
         case 2:
-        ControllerAluno alunos = new ControllerAluno();
-        alunos.listarAlunos();
+        Banco.ctlrAluno.listarAlunos();
             break;
         case 3:
          //   alterarAluno();
