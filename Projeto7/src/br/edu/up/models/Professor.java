@@ -1,6 +1,6 @@
 package br.edu.up.models;
 
-public class Professor extends Pessoa2{
+public class Professor extends Pessoa{
 
     private int numCurriculo;
     private String titulacao;

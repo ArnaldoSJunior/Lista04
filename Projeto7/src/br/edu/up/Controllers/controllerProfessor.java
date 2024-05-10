@@ -1,4 +1,4 @@
-package br.edu.up.Controllers;
+package br.edu.up.controllers;
 import br.edu.up.models.*;
 
 public class controllerProfessor {

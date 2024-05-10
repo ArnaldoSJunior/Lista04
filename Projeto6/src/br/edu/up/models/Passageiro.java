@@ -2,9 +2,9 @@ package br.edu.up.models;
 
 
 
-public class Passageiro extends Pessoa2 {
+public class Passageiro extends Pessoa {
 
-    private Pessoa2[] pessoas;
+    private Pessoa[] pessoas;
     private int idBagagem;
     private Passagem[] passagens = new Passagem[6];
 
