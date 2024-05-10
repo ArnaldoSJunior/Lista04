@@ -1,5 +1,6 @@
 package br.edu.up.controllers;
 import br.edu.up.models.*;
+import br.edu.up.db.*;
 
 public class ControllerProfessor {
 
