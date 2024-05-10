@@ -79,7 +79,7 @@ public class Menu {
                         System.out.println("--- Excluir Professor ---");
                         matricula = Prompt.lerInteiro("Digite o número da matrrícula do professor que deseja excluir: ");
                         if (Banco.ctlrProfessor.excluirProfessor(matricula).equals("ok")) {
-                            System.out.println("Professor");
+                            System.out.println("Professor excluida com suscesso");
                         }
                     break;
                 case 4:
