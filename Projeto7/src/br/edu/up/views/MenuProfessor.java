@@ -1,40 +1,12 @@
 package br.edu.up.views;
 
 import br.edu.up.Prompt;
-import br.edu.up.controllers.*;
 import br.edu.up.db.Banco;
-import br.edu.up.views.*;
 
-public class Menu {
-
-    MenuProfessor menuProfessor = new MenuProfessor();
-
-    public void mostrar(){
-        System.out.println();
-        System.out.println("-------------------------");
-        System.out.println("      MENU INICIAL"       );
-        System.out.println("-------------------------");
-        System.out.println();
-        System.out.println("Digite a opção desejada:");
-        System.out.println();
-
-        System.out.println("1. Menu Professor");
-        System.out.println("2. Menu Aluno");
-        System.out.println("3. Menu Disciplina");
-        System.out.println("4. Encerrar");
-        int op = Prompt.lerInteiro();
-        switch (op) {
-            case 1:
-                mostarMenuProfessor();
-                break;
-        
-            default:
-                break;
-        }
-    }
-
+public class MenuProfessor {
     public void mostarMenuProfessor(){
 
+        
         System.out.println();
         System.out.println("-------------------------");
         System.out.println("      MENU PROFESSOR"     );
@@ -75,15 +47,12 @@ public class Menu {
                         System.out.println("Falha ao cadastar professor!!");
                     }
                     break;
-                case 2:
+                    case 2:
                         System.out.println("--- Excluir Professor ---");
                         matricula = Prompt.lerInteiro("Digite o número da matrrícula do professor que deseja excluir: ");
                         if (Banco.ctlrProfessor.excluirProfessor(matricula).equals("ok")) {
                             System.out.println("Professor");
                         }
-                    break;
-                case 4:
-                    mostrar();
                     break;
                 default:
                     break;
@@ -102,9 +71,7 @@ public class Menu {
             System.out.println("4. Encerrar");
             op = Prompt.lerInteiro();
                     
-        } while (op !=4);
-        mostrar();
-
+        } while (op!=3);
+        
     }
 }
-

@@ -36,10 +36,10 @@ public class CurriculoLatte {
     }
 
     public String toString(){
-        return "Currículo Latte [ Nome da Instituição ="+nomeInstituicao 
-        +", Titulo Obtido ="+tituloObtido 
-        +", Trabalho de Conclusã ="+trabalhoDeConclusao 
-        +", Ano de conclusão =" + anoDeConclusao+ " ]";
+        return "Currículo Latte [ Nome da Instituição = "+nomeInstituicao 
+        +", Titulo Obtido = "+tituloObtido 
+        +", Trabalho de Conclusã = "+trabalhoDeConclusao 
+        +", Ano de conclusão = " + anoDeConclusao+ " ]";
     }
     
 

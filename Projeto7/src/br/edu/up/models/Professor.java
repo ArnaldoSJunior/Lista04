@@ -36,6 +36,7 @@ public class Professor extends Pessoa{
         this.titulacao = titulacao;
     }
     
+    
 
     // @Override
     // public String toString(){
@@ -55,13 +56,17 @@ public class Professor extends Pessoa{
         super.getMatricula();
         super.getRg();
         return "Professor [Nome ="+ super.getNome()
-        +", RG ="+super.getRg()
-        +", Matricula ="+ super.getMatricula()
-        +", Titulação ="+ titulacao
-        +", Número de Currículo ="+ numCurriculo
+        +", RG = "+super.getRg()
+        +", Matricula = "+ super.getMatricula()
+        +", Titulação = "+ titulacao
+        +", Número de Currículo = "+ numCurriculo
         +", "+ curriculoLattes.toString();
 
 
+    }
+
+    public CurriculoLatte getCurriculoLattes() {
+        return curriculoLattes;
     }
 
     
