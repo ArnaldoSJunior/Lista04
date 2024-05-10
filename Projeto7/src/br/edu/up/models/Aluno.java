@@ -32,6 +32,16 @@ public class Aluno extends Pessoa{
         this.anoDeIngresso = anoDeIngresso;
     }
 
-    
+    @Override
+    public String toString() {
+      return "Aluno [Nome ="+ super.getNome()
+        +", RG = "+ super.getRg()
+        +", Matricula = "+ super.getMatricula() 
+        +", Curso = " + this.getCurso()
+        +", Turno = " + this.getTurno()
+        +", Ano de ingresso = " + this.getAnoDeIngresso()
+        ;
+    }
 
 }
+ 

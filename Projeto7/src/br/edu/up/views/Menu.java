@@ -1,13 +1,12 @@
 package br.edu.up.views;
 
 import br.edu.up.Prompt;
-import br.edu.up.controllers.*;
 import br.edu.up.db.Banco;
-import br.edu.up.views.*;
 
 public class Menu {
 
     MenuProfessor menuProfessor = new MenuProfessor();
+    MenuAluno menuAluno = new MenuAluno();
 
     public void mostrar(){
         System.out.println();
@@ -27,11 +26,15 @@ public class Menu {
             case 1:
                 mostarMenuProfessor();
                 break;
-        
+                case 2:
+                menuAluno.mostrarMenuAluno();
+                break;
             default:
                 break;
         }
     }
+
+  
 
     public void mostarMenuProfessor(){
 
@@ -106,5 +109,16 @@ public class Menu {
         mostrar();
 
     }
+
+
+ 
+
+
+
+
+
+
+
+
 }
 
