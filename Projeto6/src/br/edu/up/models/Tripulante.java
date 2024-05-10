@@ -1,6 +1,6 @@
 package br.edu.up.models;
 
-public  abstract class Tripulante extends Pessoa {
+public abstract class Tripulante extends Pessoa {
 
     private int idAeronautica;
     private int matrculafunc;
@@ -27,6 +27,6 @@ public  abstract class Tripulante extends Pessoa {
     public void setMatrculafunc(int matrculafunc) {
         this.matrculafunc = matrculafunc;
     }
-    
-    
+
+  
 }

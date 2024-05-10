@@ -1,4 +1,4 @@
-package br.edu.up.controllers;
+package br.edu.up.Controllers;
 
 public class control {
 

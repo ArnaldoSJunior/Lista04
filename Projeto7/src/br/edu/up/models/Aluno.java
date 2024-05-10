@@ -1,16 +1,14 @@
 package br.edu.up.models;
 
-public class Aluno extends Pessoa{
+public class Aluno extends Pessoa2{
 
     
     private String curso;
     private String turno;
     private int anoDeIngresso;
 
-
-
-    
-    public Aluno(String curso, String turno, int anoDeIngresso) {
+    public Aluno(String nome, int rg, int matricula, String curso, String turno, int anoDeIngresso) {
+        super(nome, rg, matricula);
         this.curso = curso;
         this.turno = turno;
         this.anoDeIngresso = anoDeIngresso;
