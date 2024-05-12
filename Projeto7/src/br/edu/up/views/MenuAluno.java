@@ -37,8 +37,7 @@ public void mostrarMenuAluno(){
             Banco.ctlrAluno.listarAlunos();
             break;
         case 3:
-
-     
+            alterarAluno();
             break;
         case 4:
             excluirAluno();
@@ -79,6 +78,38 @@ public void mostrarMenuAluno(){
     }
     return resultado;
  }
+
+ public String alterarAluno() {
+    System.out.println("=====Alterar Aluno=========");
+    int matricula = Prompt.lerInteiro("Informe o número de matrícula: ");
+    
+    System.out.println("Qual atributo deseja alterar? (nome, rg, curso, turno, anoDeIngresso)");
+    String atributo = Prompt.lerLinha("Informe o atributo: ");
+
+    Object novoValor = null;
+    switch (atributo.toLowerCase()) {
+        case "nome":
+            novoValor = Prompt.lerLinha("Informe o novo nome: ");
+            break;
+        case "rg":
+            novoValor = Prompt.lerInteiro("Informe o novo RG: ");
+            break;
+        case "curso":
+            novoValor = Prompt.lerLinha("Informe o novo curso: ");
+            break;
+        case "turno":
+            novoValor = Prompt.lerLinha("Informe o novo turno: ");
+            break;
+        case "anodeingresso":
+            novoValor = Prompt.lerInteiro("Informe o novo ano de ingresso: ");
+            break;
+        default:
+            System.out.println("Atributo inválido.");
+            return atributo;
+    }
+    String resultado = Banco.ctlrAluno.alterarAluno(matricula, atributo, novoValor);
+    return resultado;
+}
 
 
  public String excluirAluno(){

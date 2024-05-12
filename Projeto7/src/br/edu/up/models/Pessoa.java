@@ -23,6 +23,14 @@ public abstract class Pessoa {
     public int getMatricula() {
         return matricula;
     }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public void setRg(int rg) {
+        this.rg = rg;
+    }
     
     
 }
