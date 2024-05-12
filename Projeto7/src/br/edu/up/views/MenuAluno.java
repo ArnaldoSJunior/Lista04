@@ -1,7 +1,7 @@
 package br.edu.up.views;
 
 import br.edu.up.Prompt;
-import br.edu.up.controllers.ControllerAluno;
+import br.edu.up.controllers.*;
 import br.edu.up.db.Banco;
 
 public class MenuAluno {
@@ -23,7 +23,7 @@ public void mostrarMenuAluno(){
     System.out.println("2. Listar Alunos ");
     System.out.println("3. Alterar aluno");
     System.out.println("4. Excluir Aluno ");
-    System.out.println("5. Voltar para menu inicial");
+    System.out.println("5. Voltar para Menu Inicial");
     System.out.println("6. Encerrar");
 
 

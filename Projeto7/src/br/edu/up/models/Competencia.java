@@ -3,14 +3,14 @@ package br.edu.up.models;
 public class Competencia {
 
     private String classificacao;
-    private String resumo;
+    private String descricao;
 
 
 
     
     public Competencia(String classificacao, String resumo) {
         this.classificacao = classificacao;
-        this.resumo = resumo;
+        this.descricao = resumo;
     }
     public String getClassificacao() {
         return classificacao;
@@ -19,10 +19,10 @@ public class Competencia {
         this.classificacao = classificacao;
     }
     public String getResumo() {
-        return resumo;
+        return descricao;
     }
     public void setResumo(String resumo) {
-        this.resumo = resumo;
+        this.descricao = resumo;
     }
 
     

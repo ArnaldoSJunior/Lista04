@@ -4,17 +4,36 @@ public class Disciplina {
     
     private int id;
     private String nome;
-    private String curriculo;
+    private String curso;
     private Competencia[] competencias;
 
 
 
     
-    public Disciplina(int id, String nome, String curriculo) {
+ 
+    public Disciplina(int id, String nome, String curso, Competencia[] competencias) {
         this.id = id;
         this.nome = nome;
-        this.curriculo = curriculo;
+        this.curso = curso;
+        this.competencias = competencias;
     }
+    
+    public String getCurso() {
+        return curso;
+    }
+
+    public void setCurso(String curso) {
+        this.curso = curso;
+    }
+
+    public Competencia[] getCompetencias() {
+        return competencias;
+    }
+
+    public void setCompetencias(Competencia[] competencias) {
+        this.competencias = competencias;
+    }
+
     public int getId() {
         return id;
     }
@@ -28,12 +47,14 @@ public class Disciplina {
         this.nome = nome;
     }
     public String getCurriculo() {
-        return curriculo;
+        return curso;
     }
     public void setCurriculo(String curriculo) {
-        this.curriculo = curriculo;
+        this.curso = curriculo;
     }
 
+ 
+   
     
     
 }

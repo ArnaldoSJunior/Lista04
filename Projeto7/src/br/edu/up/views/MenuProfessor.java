@@ -4,7 +4,7 @@ import br.edu.up.Prompt;
 import br.edu.up.db.Banco;
 
 public class MenuProfessor {
-    public void mostarMenuProfessor(){
+    public void mostrarMenuProfessor(){
 
         
         System.out.println();
