@@ -42,6 +42,14 @@ public class Aluno extends Pessoa{
         +", Ano de ingresso = " + this.getAnoDeIngresso()
         ;
     }
+    public void setNome(String novoNome) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'setNome'");
+    }
+    public void setRg(int novoRG) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'setRg'");
+    }
 
 }
  

@@ -21,7 +21,7 @@ public void mostrarMenuAluno(){
 
     System.out.println("1. Registrar Aluno");
     System.out.println("2. Listar Alunos ");
-    System.out.println("3. Alterar");
+    System.out.println("3. Alterar aluno");
     System.out.println("4. Excluir Aluno ");
     System.out.println("5. Voltar para menu inicial");
     System.out.println("6. Encerrar");
@@ -34,13 +34,14 @@ public void mostrarMenuAluno(){
             registrarAluno();
             break;
         case 2:
-        Banco.ctlrAluno.listarAlunos();
+            Banco.ctlrAluno.listarAlunos();
             break;
         case 3:
-         //   alterarAluno();
+
+     
             break;
         case 4:
-          //  excluirAluno();
+            excluirAluno();
             break;
         case 5:
             menuInicial.mostrar();
@@ -79,6 +80,20 @@ public void mostrarMenuAluno(){
     return resultado;
  }
 
+
+ public String excluirAluno(){
+    System.out.println("--- Excluir Aluno ---");
+    int matricula = Prompt.lerInteiro("Informa número de matrícula: ");
+    String resultado = Banco.ctlrAluno.excluirAluno(matricula);
+    if(resultado.equals("Ok")){
+        System.out.println("Aluno deletado!");
+    }else if(resultado.equals("null")){
+        System.out.println("Aluno näo encontrado!");
+    }else{
+        System.out.println("Aluno deletado! " + resultado); 
+    }
+    return "Excluido com sucesso!";
+ }
   
 
 }
