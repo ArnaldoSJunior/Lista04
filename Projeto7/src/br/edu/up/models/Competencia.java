@@ -2,28 +2,28 @@ package br.edu.up.models;
 
 public class Competencia {
 
-    private String classificacao;
+    private String tipo;
     private String descricao;
 
-
-
-    
-    public Competencia(String classificacao, String resumo) {
-        this.classificacao = classificacao;
+    public Competencia(String descricao, String resumo) {
+        this.descricao = descricao;
         this.descricao = resumo;
     }
-    public String getClassificacao() {
-        return classificacao;
+
+    public String getTipo() {
+        return tipo;
     }
-    public void setClassificacao(String classificacao) {
-        this.classificacao = classificacao;
+
+    public void setTipo(String descricao) {
+        this.tipo = descricao;
     }
-    public String getResumo() {
+
+    public String getDescricao() {
         return descricao;
     }
-    public void setResumo(String resumo) {
+
+    public void setDescricao(String resumo) {
         this.descricao = resumo;
     }
 
-    
 }
