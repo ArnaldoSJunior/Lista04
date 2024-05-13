@@ -7,10 +7,10 @@ public class ControllerProfessor {
     Professor[] professores = new Professor[10];
     CurriculoLatte[] curriculos = new CurriculoLatte[professores.length];
 
-    public String registrarProfessor(String nome, int rg, int matricula, int numCurriculo, String titulacao){
+    public String registrarProfessor(String nome, int rg, int matricula, String titulacao){
         for(int i=0; i< professores.length; i++){
             if (professores[i] == null) {
-                professores[i] = new Professor(nome, rg, matricula, numCurriculo, titulacao);
+                professores[i] = new Professor(nome, rg, matricula, titulacao);
                 
                 return "ok";
             }
@@ -20,7 +20,7 @@ public class ControllerProfessor {
     public String registrarCurriculo(int matricula, String nomeInstituicao, int anoDeConclusao, String tituloObtido, String trabalhoDeConclusao){
         for(int i = 0; i < curriculos.length; i++){
             if (curriculos[i] == null) {
-                curriculos[i] = new CurriculoLatte(nomeInstituicao, anoDeConclusao, tituloObtido, trabalhoDeConclusao);
+                curriculos[i] = new CurriculoLatte(matricula, nomeInstituicao, anoDeConclusao, tituloObtido, trabalhoDeConclusao);
                 for(int j = 0; j < professores.length; j++){
                     if (professores[j] != null && professores[j].getMatricula() == matricula) {
                         professores[j].setCurriculoLattes(curriculos[i]);
@@ -38,11 +38,80 @@ public class ControllerProfessor {
         for(int i=0; i < professores.length; i++){
             if (professores[i].getMatricula() == matricula) {
                 professores[i] = null;
-                return "ok";
+                for(int j=0; j<curriculos.length; j++){
+                    if (curriculos[j] != null && curriculos[i].getMatriculaProfessor() == matricula) {
+                        curriculos[j] = null;
+                        return "ok";
+                    }
+                }
             }
         }
         return "null";
         
     }
-    
+    public String listarProfessores(){
+        int num =0;
+        StringBuffer res = new StringBuffer();
+        for(int i=0; i < professores.length; i++){
+            if (professores[i] != null) {
+                res.append(professores[i].toString()).append("\n");
+                num++;
+            }
+        }
+        if (num ==0) {
+            res.append("Não professores cadastrados!!");
+        }
+        return res.toString();
+    }
+
+    public String alterarNome(String nomeAntigo, String nomeNovo){
+        for(int i=0; i< professores.length; i++){
+            if (professores[i].getNome().equals(nomeAntigo)) {
+                professores[i].setNome(nomeNovo);
+                return"ok";
+            }
+        }
+        return "null";
+    }
+    public String alterarRg(int rgAntigo, int rgNovo){
+        for(int i=0; i < professores.length; i++){
+            if (professores[i].getRg() == rgAntigo) {
+                professores[i].setRg(rgNovo);
+                return "ok";
+            }
+        }
+        return "null";
+    }
+    public String alterarMatricula(int matriculaAntiga, int matriculaNova){
+        for(int i=0; i< professores.length; i++){
+            if (professores[i].getMatricula() == matriculaAntiga) {
+                professores[i].setMatricula(matriculaNova);
+                for(int j=0; j < curriculos.length; j++){
+                    if (curriculos[j].getMatriculaProfessor() == matriculaAntiga) {
+                        curriculos[j].setMatriculaProfessor(matriculaNova);
+                        return "ok";
+                    }
+                }
+            }
+        }
+        return "null";
+    }
+    public String alterarTitulção(String tirulacaoAntiga, String titulacaoNova){
+        for(int i=0; i< professores.length; i++){
+            if (professores[i].getTitulacao().equals(tirulacaoAntiga)) {
+                professores[i].setTitulacao(titulacaoNova);
+                return "ok";
+            }
+        }
+        return "null";
+    }
+    public Professor retornarProfessor(int matricula){
+        for(int i=0; i< professores.length; i++){
+            if (professores[i].getMatricula() == matricula) {
+                return professores[i];
+            }
+        }
+        return null;
+    }
+
 }

@@ -72,18 +72,15 @@ public String alterarAluno(int matricula, String atributo, Object novoValor) {
 
 
 
-public String excluirAluno(int matricula){
-    for(int i=0; i < alunos.length; i++){
-       
-        if (alunos[i] != null && alunos[i].getMatricula() == matricula) {
-            alunos[i] = null;
-            return "ok";
+    public String excluirAluno(int matricula){
+        for(int i=0; i < alunos.length; i++){
+            if (alunos[i] != null && alunos[i].getMatricula() == matricula) {
+                alunos[i] = null;
+                return "ok";
+            }
         }
+        return "null";
+        
     }
-    return "null";
-    
-}
-
-
 
 }

@@ -116,7 +116,7 @@ public void mostrarMenuAluno(){
     System.out.println("--- Excluir Aluno ---");
     int matricula = Prompt.lerInteiro("Informa número de matrícula: ");
     String resultado = Banco.ctlrAluno.excluirAluno(matricula);
-    if(resultado.equals("Ok")){
+    if(resultado.equals("ok")){
         System.out.println("Aluno deletado!");
     }else if(resultado.equals("null")){
         System.out.println("Aluno näo encontrado!");

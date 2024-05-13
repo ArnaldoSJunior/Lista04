@@ -6,14 +6,23 @@ public class CurriculoLatte {
     private int anoDeConclusao;
     private String tituloObtido;
     private String trabalhoDeConclusao;
+    private int matriculaProfessor;
 
 
-    public CurriculoLatte(String nomeInstituicao, int anoDeConclusao, String tituloObtido, String trabalhoDeConclusao) {
+    public CurriculoLatte(int matriculaProfessor, String nomeInstituicao, int anoDeConclusao, String tituloObtido, String trabalhoDeConclusao) {
         this.nomeInstituicao = nomeInstituicao;
         this.anoDeConclusao = anoDeConclusao;
         this.tituloObtido = tituloObtido;
         this.trabalhoDeConclusao = trabalhoDeConclusao;
+        this.matriculaProfessor = matriculaProfessor;
     }
+    
+
+
+    public void setMatriculaProfessor(int matriculaProfessor) {
+        this.matriculaProfessor = matriculaProfessor;
+    }
+
 
 
     public String getNomeInstituicao() {
@@ -40,6 +49,12 @@ public class CurriculoLatte {
         +", Titulo Obtido = "+tituloObtido 
         +", Trabalho de Conclusã = "+trabalhoDeConclusao 
         +", Ano de conclusão = " + anoDeConclusao+ " ]";
+    }
+
+
+
+    public int getMatriculaProfessor() {
+        return matriculaProfessor;
     }
     
 

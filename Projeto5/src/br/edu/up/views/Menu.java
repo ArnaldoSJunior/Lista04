@@ -11,8 +11,6 @@ public class Menu {
 
     public void mostrar(){
 
-        MenuEvento eventoMenu = new MenuEvento();
-        MenuReserva eventoReserva = new MenuReserva();
         ControleEvento controllerEvento = new ControleEvento();
         ControleReserva controllReserva = new ControleReserva();
         Mensagem msg = new Mensagem();

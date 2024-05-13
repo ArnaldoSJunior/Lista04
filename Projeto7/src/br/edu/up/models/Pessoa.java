@@ -31,6 +31,11 @@ public abstract class Pessoa {
     public void setRg(int rg) {
         this.rg = rg;
     }
+
+    public void setMatricula(int matricula) {
+        this.matricula = matricula;
+    }
+    
     
     
 }

@@ -120,7 +120,7 @@ public class Prompt {
 	 * 
 	 * @return double
 	 */
-	public static String lerDecimal() {
+	public static double lerDecimal() {
 		while (true) {
 			try {
 				String linha = lerLinha();
