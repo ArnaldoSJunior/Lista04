@@ -5,6 +5,7 @@ import br.edu.up.db.*;
 import br.edu.up.models.Competencia;
 
 public class MenuDisciplina {
+    
 
     public void mostrarDisciplina() {
         Menu menuInicial = new Menu();
@@ -34,6 +35,7 @@ public class MenuDisciplina {
                     Banco.ctlrDisciplina.listarDisciplina();
                     break;
                 case 3:
+                    alterarDisciplina();
                     break;
                 case 4:
                     excluirDisciplina();
@@ -89,6 +91,63 @@ public class MenuDisciplina {
             System.out.println("Disciplina deletada! " + resultado);
         }
         return "Excluida com sucesso!";
+    }
+    public String alterarDisciplina(){
+        Menu menuInicial = new Menu();
+        System.out.println();
+        System.out.println("-----------------------------------");
+        System.out.println("  MENU DE ALTERAÇÃO DE DISCIPLINA  ");
+        System.out.println("-----------------------------------");
+        System.out.println();
+        System.out.println("Digite a opção desejada:");
+        System.out.println();
+
+        System.out.println("1. Nome");
+        System.out.println("2. Id");
+        System.out.println("3. Curso");
+        System.out.println("4. Voltar Menu");
+        System.out.println("5. Encerrar");
+        int op = Prompt.lerInteiro();
+        do {
+            switch (op) {
+                case 1:
+                    System.out.println("--- Alterar Nome ---");
+                    String nomeAntigo = Prompt.lerLinha("Digite o nome antigo da disciplina: ");
+                    String nomeNovo = Prompt.lerLinha("Digite o nome novo: ");
+                    if (Banco.ctlrDisciplina.alterarNome(nomeAntigo, nomeNovo).equals("ok")) {
+                        System.out.println("Nome alterado com suscesso!!");
+                    }else{
+                        System.out.println("Falha ao alterar o nome!!");
+                    }
+                break;
+                case 2:
+                    System.out.println("--- Alterar ID ---");
+                    int idAntigo = Prompt.lerInteiro("Digite o ID antigo da disciplina: ");
+                    int idNovo = Prompt.lerInteiro("Digite o ID novo: ");
+                    if (Banco.ctlrDisciplina.alterarId(idAntigo, idNovo).equals("ok")) {
+                        System.out.println("ID alterada com suscesso!!");
+                    }else{
+                        System.out.println("Falha ao alterar curso");
+                    }
+                break;
+                case 3:
+                    System.out.println("--- Alterar Nome ---");
+                    String cursoAntigo = Prompt.lerLinha("Digite o curso antigo da disciplina: ");
+                    String cursoNovo = Prompt.lerLinha("Digite o curso novo: ");
+                    if (Banco.ctlrDisciplina.alterarNome(cursoAntigo, cursoNovo).equals("ok")) {
+                        System.out.println("Curso alterado com suscesso!!");
+                    }else{
+                        System.out.println("Falha ao alterar o curso!!");
+                    }
+                    break;
+                case 4:
+                    menuInicial.mostrar();
+                break;
+                default:
+                    break;
+            }
+        } while (op != 5);
+        return "";
     }
 
 }

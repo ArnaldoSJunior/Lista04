@@ -36,6 +36,16 @@ public class Professor extends Pessoa{
         +", Titulação = "+ titulacao
         +", "+ curriculoLattes.toString();
 
+    }
+    public String listarProfessor(){
+        super.getNome();
+        super.getMatricula();
+        super.getRg();
+        return "Professor [Nome ="+ super.getNome()
+        +", RG = "+super.getRg()
+        +", Matricula = "+ super.getMatricula()
+        +", Titulação = "+ titulacao
+        +" ]\n";
 
     }
 

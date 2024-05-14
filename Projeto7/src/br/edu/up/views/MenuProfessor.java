@@ -108,6 +108,7 @@ public class MenuProfessor {
                                     }else{
                                         System.out.println("Falha ao alterar a matrícula!!");
                                     }
+                                break;
                                 case 4:
                                     System.out.println("--- Alterar a Titulação ---");
                                     String titulacaoAntiga = Prompt.lerLinha("Digite a titulação antiga: ");
@@ -117,6 +118,7 @@ public class MenuProfessor {
                                     }else{
                                         System.out.println("Falha ao alterar titulação!!");
                                     }
+                                break;
                                 case 5:
                                     menuInicial.mostrar();
                                 break;

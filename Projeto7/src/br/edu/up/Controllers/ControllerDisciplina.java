@@ -21,7 +21,7 @@ public class ControllerDisciplina {
 
         for (int i = 0; i < disciplinas.length; i++) {
             if (disciplinas[i] != null) {
-                System.out.println("--- Disciplina ---");
+                System.out.println("-------- Disciplina ---------");
                 System.out.println("Id " + disciplinas[i].getId());
                 System.out.println("Nome " + disciplinas[i].getNome());
                 System.out.println("Curso " + disciplinas[i].getCurso());
@@ -40,7 +40,6 @@ public class ControllerDisciplina {
 
     public String excluirDisciplina(int id) {
         for (int i = 0; i < disciplinas.length; i++) {
-
             if (disciplinas[i] != null && disciplinas[i].getId() == id) {
                 disciplinas[i] = null;
                 return "ok";
@@ -48,6 +47,33 @@ public class ControllerDisciplina {
         }
         return "null";
 
+    }
+    public String alterarNome(String nomeAntigo, String nomeNovo){
+        for(int  i=0; i < disciplinas.length; i++){
+            if (disciplinas[i].getNome().equals(nomeAntigo)) {
+                disciplinas[i].setNome(nomeNovo);
+                return "ok";
+            }
+        }
+        return "null";
+    }
+    public String alterarId(int idAntiga, int idNova){
+        for(int i=0; i < disciplinas.length; i++){
+            if (disciplinas[i].getId() == idAntiga) {
+                disciplinas[i].setId(idNova);
+                return "ok";
+            }
+        }
+        return "null";
+    }
+    public String alterarCurso(String cursoAntigo, String cursoNovo){
+        for(int  i=0; i < disciplinas.length; i++){
+            if (disciplinas[i].getCurso().equals(cursoAntigo)) {
+                disciplinas[i].setCurso(cursoNovo);
+                return "ok";
+            }
+        }
+        return "null";
     }
 
 }

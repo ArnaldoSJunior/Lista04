@@ -54,7 +54,7 @@ public class ControllerProfessor {
         StringBuffer res = new StringBuffer();
         for(int i=0; i < professores.length; i++){
             if (professores[i] != null) {
-                res.append(professores[i].toString()).append("\n");
+                res.append(professores[i].listarProfessor()).append("\n");
                 num++;
             }
         }

@@ -3,8 +3,6 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
-import br.edu.up.models.Competencia;
-
 /**
  * Um classe utilitária para imprimir e ler textos, números inteiros e decimais
  * no prompt de comandos.
@@ -110,7 +108,7 @@ public class Prompt {
 	 * 
 	 * @return double
 	 */
-	public static String lerDecimal(String mensagem) {
+	public static double lerDecimal(String mensagem) {
 		imprimir(mensagem);
 		return lerDecimal();
 	}
