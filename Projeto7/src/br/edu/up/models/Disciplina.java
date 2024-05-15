@@ -6,11 +6,8 @@ public class Disciplina {
     private String nome;
     private String curso;
     private Competencia[] competencias;
+    private Professor professor;
 
-
-
-    
- 
     public Disciplina(int id, String nome, String curso, Competencia[] competencias) {
         this.id = id;
         this.nome = nome;
@@ -37,24 +34,33 @@ public class Disciplina {
     public int getId() {
         return id;
     }
+
     public void setId(int id) {
         this.id = id;
     }
+
     public String getNome() {
         return nome;
     }
+
     public void setNome(String nome) {
         this.nome = nome;
     }
+
     public String getCurriculo() {
         return curso;
     }
+
     public void setCurriculo(String curriculo) {
         this.curso = curriculo;
     }
 
+    public Professor getProfessor() {
+        return professor;
+    }
+
+    public void setProfessor(Professor professor) {
+        this.professor = professor;
+    }
  
-   
-    
-    
 }

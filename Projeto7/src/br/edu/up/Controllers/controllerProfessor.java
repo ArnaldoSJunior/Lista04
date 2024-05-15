@@ -113,5 +113,12 @@ public class ControllerProfessor {
         }
         return null;
     }
+    public Professor[] getProfessores() {
+        return professores;
+    }
+    public Professor getProfessores(int i) {
+        return professores[i];
+    }
+    
 
 }

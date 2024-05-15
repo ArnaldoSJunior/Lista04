@@ -58,7 +58,7 @@ public class MenuDisciplina {
         int id = Prompt.lerInteiro("Id: ");
         String nome = Prompt.lerLinha("Nome: ");
         String curso = Prompt.lerLinha("Curso: ");
-
+        int idProfessor = Prompt.lerInteiro("Matrícula do professor: ");
         int numCompetencias = Prompt.lerInteiro("Quantidade de competências: ");
         Competencia[] competencias = new Competencia[numCompetencias];
         for (int i = 0; i < numCompetencias; i++) {
@@ -70,7 +70,7 @@ public class MenuDisciplina {
 
         }
 
-        String resultado = Banco.ctlrDisciplina.registrarDisciplina(id, nome, curso, competencias);
+        String resultado = Banco.ctlrDisciplina.registrarDisciplina(id, nome, curso, competencias, idProfessor);
 
         if (resultado.equals("ok")) {
             System.out.println("Disciplina registrada com sucesso!!");
