@@ -20,8 +20,6 @@ public class Mes {
         if (dia > 0 && dia <= numDias) {
             if (hora >= 1 && hora < 24) {
                 if (dias[dia - 1] == null || dias[dia - 1].consultarCompromisso(hora).equals("1")) {
-                    // Se não houver um dia neste índice ou se não houver compromisso nesta hora,
-                    // então criamos um novo dia e agendamos o compromisso.
                     if (dias[dia - 1] == null) {
                         dias[dia - 1] = new Dia(dia);
                     }

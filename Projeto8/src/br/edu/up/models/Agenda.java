@@ -11,4 +11,19 @@ public class Agenda {
         return contatos;
     }
 
+    public List<Contato> getContatos() {
+        return contatos;
+    }
+
+    @Override
+    public String toString() {
+        for(Contato c: contatos){
+            System.out.println(c);
+        }
+        return "";
+    }
+
+    
+    
+
 }

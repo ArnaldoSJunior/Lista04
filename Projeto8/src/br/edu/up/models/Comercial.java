@@ -19,8 +19,9 @@ public class Comercial extends Contato {
 
     @Override
     public String toString() {
-
+        
         return super.toString();
     }
 
 }
+ 
