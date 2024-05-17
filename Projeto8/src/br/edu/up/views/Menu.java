@@ -1,5 +1,6 @@
 package br.edu.up.views;
 
+import br.edu.up.controllers.*;
 import br.edu.up.Prompt;
 
 public class Menu {
@@ -21,10 +22,10 @@ public class Menu {
         do {
             switch (op) {
                 case 1:
-
+                    incluirPessoal();
                     break;
                 case 2:
-
+                    incluirComercial();
                     break;
                 case 3:
 
@@ -42,7 +43,22 @@ public class Menu {
                     break;
             }
         } while (op != 6);
+    }
 
+    public void incluirPessoal() {
+        System.out.println("Informe os dados");
+        int cod = Prompt.lerInteiro("Código:");
+        String nome = Prompt.lerLinha("Nome:");
+        String telefone = Prompt.lerLinha("Telefone:");
+        String aniversario = Prompt.lerLinha("Aniversário:");
+    }
+
+    public void incluirComercial() {
+        System.out.println("Informe os dados");
+        int cod = Prompt.lerInteiro("Código:");
+        String nome = Prompt.lerLinha("Nome:");
+        String telefone = Prompt.lerLinha("Telefone:");
+        String cnpj = Prompt.lerLinha("CNPJ:");
     }
 
 }
