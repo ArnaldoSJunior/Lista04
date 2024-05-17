@@ -1,5 +1,7 @@
 package br.edu.up.models;
 
+import br.edu.up.db.Banco;
+
 public class Disciplina {
     
     private int id;
@@ -7,6 +9,7 @@ public class Disciplina {
     private String curso;
     private Competencia[] competencias;
     private Professor professor;
+    private Aluno[] alunos = new Aluno[Banco.ctlrAluno.getAlunos().length];
 
     public Disciplina(int id, String nome, String curso, Competencia[] competencias) {
         this.id = id;
@@ -14,6 +17,10 @@ public class Disciplina {
         this.curso = curso;
         this.competencias = competencias;
     }
+    public void adicionatAluno(int k, Aluno aluno){
+        alunos[k] = aluno;
+    }
+
     
     public String getCurso() {
         return curso;
@@ -62,5 +69,28 @@ public class Disciplina {
     public void setProfessor(Professor professor) {
         this.professor = professor;
     }
+
+
+    public Aluno[] getAlunos() {
+        return alunos;
+    }
+
+
+    public void setAlunos(Aluno[] alunos) {
+        this.alunos = alunos;
+    }
+    public void setAluno(Aluno aluno){
+        for(int i=0; i < alunos.length; i++){
+            if (alunos[i] == null) {
+                alunos[i] = aluno;
+            }
+        }
+    }
+
+    public Aluno getAlunos(int i) {
+        return alunos[i];
+    }
+    
+
  
 }
