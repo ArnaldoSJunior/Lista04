@@ -20,7 +20,10 @@ public class Comercial extends Contato {
     @Override
     public String toString() {
         
-        return super.toString();
+        return "\nNome: "+ super.getNome()
+                + ", Código: "+ super.getCodigo()
+                + ", Telefone: "+ super.getTelefone()
+                + ", CNPJ: "+ getCnpj();
     }
 
 }

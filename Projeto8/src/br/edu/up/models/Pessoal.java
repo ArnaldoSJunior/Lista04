@@ -20,7 +20,11 @@ public class Pessoal extends Contato {
     @Override
     public String toString() {
 
-        return super.toString();
+        return "\nNome: "+ super.getNome()
+                +", Aniversário: "+ getAniversario()
+                +", Código: "+ super.getCodigo()
+                +", Telefone: "+ super.getTelefone();
+
     }
 
 }

@@ -1,11 +1,11 @@
 package br.edu.up;
 
 import br.edu.up.controllers.ControleAgenda;
+import br.edu.up.views.Menu;
 
 public class Program {
     public static void main(String[] args) {
-        ControleAgenda ctrlAgenda = new ControleAgenda();
-
-        ctrlAgenda.incluirContatoPessoal(11, "migas", "41997786784", "09608709970");
+        Menu menu = new Menu();
+        menu.mostrar();
     }
 }
