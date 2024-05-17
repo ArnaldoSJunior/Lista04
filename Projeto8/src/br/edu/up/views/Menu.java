@@ -36,7 +36,7 @@ public class Menu {
 
                     break;
                 case 6:
-
+                    System.exit(0);
                     break;
                 default:
                     break;
