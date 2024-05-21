@@ -1,6 +1,7 @@
 package br.edu.up.views;
 
 import br.edu.up.controllers.*;
+import br.edu.up.models.Contato;
 import br.edu.up.Prompt;
 
 public class Menu {
@@ -33,7 +34,7 @@ public class Menu {
                     excluirContato();
                     break;
                 case 4:
-
+                    consultarContato();
                     break;
                 case 5:
                     System.out.println(ctrlAgenda.listarContatos());
@@ -93,6 +94,20 @@ public class Menu {
             System.out.println("Contato removido com suscesso!!");
         }else{
             System.out.println("Falha ao remover contato!!");
+        }
+    }
+
+    public void consultarContato() {
+        System.out.println("Informe o código do contato que deseja consultar: ");
+        int cod = Prompt.lerInteiro();
+        
+        Contato contato = ctrlAgenda.buscarContatoPorCodigo(cod);
+        
+        if (contato != null) {
+            System.out.println("Contato encontrado:");
+            System.out.println(contato.toString());
+        } else {
+            System.out.println("Contato não encontrado!");
         }
     }
 

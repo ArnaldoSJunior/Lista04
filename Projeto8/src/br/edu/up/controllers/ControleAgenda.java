@@ -1,7 +1,7 @@
 package br.edu.up.controllers;
 
 import java.util.List;
-
+import java.util.Optional;
 
 import br.edu.up.models.*;
 
@@ -43,4 +43,13 @@ public class ControleAgenda {
         }
         return "null";
     }
+   public Contato buscarContatoPorCodigo(int codigo) {
+        Optional<Contato> contatoEncontrado = agenda.getContatos().stream().filter(contato -> contato.getCodigo() == codigo).findFirst();
+
+        return contatoEncontrado.orElse(null);
+    }
+   
+
+
+
 }
