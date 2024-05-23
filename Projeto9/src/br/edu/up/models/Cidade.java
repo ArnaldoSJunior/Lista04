@@ -2,46 +2,24 @@ package br.edu.up.models;
 
 public class Cidade {
 
-    private String rua;
-    private String numero;
-    private String bairro;
-    private String cep;
-    private Cidade cidade;
-    public String getRua() {
-        return rua;
-    }
-    public void setRua(String rua) {
-        this.rua = rua;
-    }
-    public String getNumero() {
-        return numero;
-    }
-    public void setNumero(String numero) {
-        this.numero = numero;
-    }
-    public String getBairro() {
-        return bairro;
-    }
-    public void setBairro(String bairro) {
-        this.bairro = bairro;
-    }
-    public String getCep() {
-        return cep;
-    }
-    public void setCep(String cep) {
-        this.cep = cep;
-    }
-    public Cidade getCidade() {
-        return cidade;
-    }
-    public void setCidade(Cidade cidade) {
-        this.cidade = cidade;
-    }
-    @Override
-    public String toString() {
-        return "Cidade [rua=" + rua + ", numero=" + numero + ", bairro=" + bairro + ", cep=" + cep + ", cidade="
-                + cidade + "]";
-    }
+    private String nome;
+    private String UF;
 
-    
+    public Cidade(String nome, String uF) {
+        this.nome = nome;
+        UF = uF;
+    }
+    public String getNome() {
+        return nome;
+    }
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+    public String getUF() {
+        return UF;
+    }
+    public void setUF(String uF) {
+        UF = uF;
+    }
 }
+

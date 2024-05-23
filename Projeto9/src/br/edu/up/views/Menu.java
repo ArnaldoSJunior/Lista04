@@ -1,8 +1,12 @@
 package br.edu.up.views;
 
 import br.edu.up.Prompt;
+import br.edu.up.controllers.*;
 
 public class Menu {
+
+    ControleCliente ctrlCliente = new ControleCliente();
+
     public void mostrar() {
 
         System.out.println("----- MENU -----");
@@ -23,8 +27,28 @@ public class Menu {
         do {
             switch (op) {
                 case 1:
-                  
-                    break;
+                //String nome, String telefone, String email, double vlrMaxCredito, double vlrEmprestado, String cpf, double peso, double altura, String rua, String bairro, int numero, String cep, String nomeCidade, String uF
+                    System.out.println("--- Inclir cliente pessoa ---");
+                    String nome = Prompt.lerLinha("Digite o nome do cliente");
+                    String telefone = Prompt.lerLinha("Digite a telefone: ");
+                    String email = Prompt.lerLinha("Digite o email: ");
+                    double vlrMaxCredito = Prompt.lerDecimal("Digite o valor máximo de crédito: ");
+                    double vlrEmprestado = Prompt.lerDecimal("Digite o valor emprestado: ");
+                    String cpf = Prompt.lerLinha("Digite o seu CPF: ");
+                    double peso = Prompt.lerDecimal("Digite o seu peso: ");
+                    double altura = Prompt.lerDecimal("Digite a sua altura: ");
+                    System.out.println("\n\n--- Incluir endereço da pessoa ---");
+                    String rua = Prompt.lerLinha("Digite a sua rua: ");
+                    String bairro = Prompt.lerLinha("Digite o bairro: ");
+                    int numero = Prompt.lerInteiro("Digite o número: ");
+                    String cep = Prompt.lerLinha("Digite o CEP: ");
+                    String nomeCidade = Prompt.lerLinha("Digite o nome da sua cidade: ");
+                    String uf = Prompt.lerLinha("Digite a UF do estado: ");
+                    if (ctrlCliente.adicionarClientePessoa(nome, telefone, email, vlrMaxCredito, vlrEmprestado, cpf, peso, altura, rua, bairro, numero, cep, nomeCidade, uf).equals("ok")) {
+                        System.out.println("Cliente pessoa adicionado!!");
+                    }else{
+                        System.out.println("Falha ao adicionar cliente!!");
+                    }
                 case 2:
                    
                     break;

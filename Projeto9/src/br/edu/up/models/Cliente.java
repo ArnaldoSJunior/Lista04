@@ -8,7 +8,17 @@ public abstract class Cliente {
     private Endereco endereco;
     private double vlrMaxCredito;
     private double vlrEmprestado;
+
     
+    
+    public Cliente(String nome, String telefone, String email, double vlrMaxCredito,
+            double vlrEmprestado) {
+        this.nome = nome;
+        this.telefone = telefone;
+        this.email = email;
+        this.vlrMaxCredito = vlrMaxCredito;
+        this.vlrEmprestado = vlrEmprestado;
+    }
     public String getNome() {
         return nome;
     }
