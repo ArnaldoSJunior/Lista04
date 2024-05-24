@@ -35,9 +35,10 @@ public class ClientePessoa extends Cliente{
         return "ClientePessoa = Nome: "+ super.getNome()
                 +", Telefone: "+ super.getTelefone()
                 +", Email: "+ super.getEmail()
-                +", Endereço: "+ super.getEndereco()
                 +", Valor máximo de crédtio: "+ super.getVlrMaxCredito()
-                +", Valor emprestado: "+ super.getVlrEmprestado();
+                +", Valor emprestado: "+ super.getVlrEmprestado()
+                +"\nEndereço: "+ super.getEndereco();
+                
     }
 
     

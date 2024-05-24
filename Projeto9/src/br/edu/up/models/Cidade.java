@@ -21,5 +21,10 @@ public class Cidade {
     public void setUF(String uF) {
         UF = uF;
     }
+    @Override
+    public String toString() {
+        return  nome + ", UF: " + UF;
+    }
+    
 }
 

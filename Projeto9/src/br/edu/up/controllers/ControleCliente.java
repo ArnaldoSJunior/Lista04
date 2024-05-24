@@ -16,7 +16,7 @@ public class ControleCliente {
     public String adicionarClientePessoa(String nome, String telefone, String email, double vlrMaxCredito, double vlrEmprestado, String cpf, double peso, double altura, String rua, String bairro, int numero, String cep, String nomeCidade, String uF){
         //Procura pessoa possivel pessoa com o cpf inserido
         ClientePessoa pessoa = listaPessoas.stream().filter(x -> x.getCpf() == cpf).findFirst().orElse(null);
-        if (pessoa != null) {
+        if (pessoa == null) {
             ClientePessoa clientePessoa = new ClientePessoa(nome, telefone, email, vlrMaxCredito, vlrEmprestado, cpf, peso, altura);
             //Adicionar endereço no cliente
             Endereco end = adicionarEndereço(rua, bairro, numero, cep, nomeCidade, uF);
@@ -39,12 +39,39 @@ public class ControleCliente {
             endereco.setCidade(cid);
             return endereco;
         }
-        
+        return null;
     }
 
     public Cidade adicionarCidade(String nome, String uF){
         Cidade cidade = new Cidade(nome, uF);
         return cidade;
+    }
+
+    public String listarClientesPessoas(){
+        if (listaPessoas.size() == 0) {
+            return "Não há clientes cadastrados!!";
+        }else{
+            return listaPessoas.toString();
+        }
+    }
+
+    public String adicionarClienteEmpresa(String nome, String telefone, String email, double vlrMaxCredito, double vlrEmprestado,
+    String cnpj, String inscEstadual, int anoFundacao){
+        ClienteEmpresa empresa = listaEmpresas.stream().filter(x -> x.getCnpj() == cnpj).findFirst().orElse(null);
+        if (empresa == null) {
+            ClienteEmpresa clienteEmpresa = new ClienteEmpresa(nome, telefone, email, vlrMaxCredito, vlrEmprestado, cnpj, inscEstadual, anoFundacao);
+            listaEmpresas.add(clienteEmpresa);
+            return "ok";
+        }
+        return "null";
+    }
+
+    public String listarClientesEmpresa(){
+        if (listaEmpresas.size() == 0) {
+            return "Não há clientes cadastrados!!";
+        }else{
+            return listaEmpresas.toString();
+        }
     }
 
  

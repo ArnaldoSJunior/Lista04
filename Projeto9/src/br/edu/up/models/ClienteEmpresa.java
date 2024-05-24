@@ -5,6 +5,15 @@ public class ClienteEmpresa extends Cliente {
     private String cnpj;
     private String inscEstadual;
     private int anoFundacao;
+
+    
+    public ClienteEmpresa(String nome, String telefone, String email, double vlrMaxCredito, double vlrEmprestado,
+            String cnpj, String inscEstadual, int anoFundacao) {
+        super(nome, telefone, email, vlrMaxCredito, vlrEmprestado);
+        this.cnpj = cnpj;
+        this.inscEstadual = inscEstadual;
+        this.anoFundacao = anoFundacao;
+    }
     public String getCnpj() {
         return cnpj;
     }
@@ -25,7 +34,14 @@ public class ClienteEmpresa extends Cliente {
     }
     @Override
     public String toString() {
-        return "ClienteEmpresa [cnpj=" + cnpj + ", inscEstadual=" + inscEstadual + ", anoFundacao=" + anoFundacao + "]";
+        return "ClienteEmpresa [ Nome: "+ super.getNome()
+                +", Telefone: "+ super.getTelefone()
+                +", Email: "+ super.getEmail()
+                +", Valor máximo de crédito: "+ getVlrMaxCredito()
+                +", Valor emprestado: "+ getVlrEmprestado()
+                +", CNPJ: "+ getCnpj()
+                +", Inscrição estadual: "+ getInscEstadual()
+                +", Ano da fundação da empresa: "+ getAnoFundacao()+" ]";
     }
 
     

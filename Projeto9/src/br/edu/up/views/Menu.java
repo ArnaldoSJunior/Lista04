@@ -27,7 +27,6 @@ public class Menu {
         do {
             switch (op) {
                 case 1:
-                //String nome, String telefone, String email, double vlrMaxCredito, double vlrEmprestado, String cpf, double peso, double altura, String rua, String bairro, int numero, String cep, String nomeCidade, String uF
                     System.out.println("--- Inclir cliente pessoa ---");
                     String nome = Prompt.lerLinha("Digite o nome do cliente");
                     String telefone = Prompt.lerLinha("Digite a telefone: ");
@@ -50,13 +49,26 @@ public class Menu {
                         System.out.println("Falha ao adicionar cliente!!");
                     }
                 case 2:
-                   
+                    System.out.println("--- Inclir cliente empresa ---");
+                    nome = Prompt.lerLinha("Digite o nome da empresa");
+                    telefone = Prompt.lerLinha("Digite a telefone: ");
+                    email = Prompt.lerLinha("Digite o email: ");
+                    vlrMaxCredito = Prompt.lerDecimal("Digite o valor máximo de crédito: ");
+                    vlrEmprestado = Prompt.lerDecimal("Digite o valor emprestado: ");
+                    String cnpj = Prompt.lerLinha("Digite o CNPJ da empresa: ");
+                    String inscEstadual = Prompt.lerLinha("Digite a inscrição estadual: ");
+                    int anoFundacao = Prompt.lerInteiro("Digite o ano de fundação da empresa: ");
+                    if (ctrlCliente.adicionarClienteEmpresa(nome, telefone, email, vlrMaxCredito, vlrEmprestado, cnpj, inscEstadual, anoFundacao).equals("ok")) {
+                        System.out.println("Cliente empresa registrado com suscesso!!");
+                    }else{
+                        System.out.println("Falha ao cadastrar cliente!!");
+                    }
                     break;
                 case 3:
-                   
+                    System.out.println(ctrlCliente.listarClientesPessoas());
                     break;
                 case 4:
-                   
+                    System.out.println(ctrlCliente.listarClientesEmpresa());
                     break;
                 case 5:
                    
