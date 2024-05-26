@@ -6,8 +6,8 @@ public class ClientePessoa extends Cliente{
     private double peso;
     private double altura;
 
-    public ClientePessoa(String nome, String telefone, String email, double vlrMaxCredito, double vlrEmprestado, String cpf, double peso, double altura) {
-        super(nome, telefone, email, vlrMaxCredito, vlrEmprestado);
+    public ClientePessoa(String nome, String telefone, String email, double vlrMaxCredito, String cpf, double peso, double altura) {
+        super(nome, telefone, email, vlrMaxCredito);
         this.cpf = cpf;
         this.peso = peso;
         this.altura = altura;
@@ -32,9 +32,12 @@ public class ClientePessoa extends Cliente{
     }
     @Override
     public String toString() {
-        return "ClientePessoa = Nome: "+ super.getNome()
+        return "\nClientePessoa = Nome: "+ super.getNome()
                 +", Telefone: "+ super.getTelefone()
                 +", Email: "+ super.getEmail()
+                +", CPF: "+ getCpf()
+                +", Peso: "+ getPeso()
+                +", Altura: "+ getAltura()
                 +", Valor máximo de crédtio: "+ super.getVlrMaxCredito()
                 +", Valor emprestado: "+ super.getVlrEmprestado()
                 +"\nEndereço: "+ super.getEndereco();

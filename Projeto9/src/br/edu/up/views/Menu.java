@@ -32,7 +32,6 @@ public class Menu {
                     String telefone = Prompt.lerLinha("Digite a telefone: ");
                     String email = Prompt.lerLinha("Digite o email: ");
                     double vlrMaxCredito = Prompt.lerDecimal("Digite o valor máximo de crédito: ");
-                    double vlrEmprestado = Prompt.lerDecimal("Digite o valor emprestado: ");
                     String cpf = Prompt.lerLinha("Digite o seu CPF: ");
                     double peso = Prompt.lerDecimal("Digite o seu peso: ");
                     double altura = Prompt.lerDecimal("Digite a sua altura: ");
@@ -43,22 +42,22 @@ public class Menu {
                     String cep = Prompt.lerLinha("Digite o CEP: ");
                     String nomeCidade = Prompt.lerLinha("Digite o nome da sua cidade: ");
                     String uf = Prompt.lerLinha("Digite a UF do estado: ");
-                    if (ctrlCliente.adicionarClientePessoa(nome, telefone, email, vlrMaxCredito, vlrEmprestado, cpf, peso, altura, rua, bairro, numero, cep, nomeCidade, uf).equals("ok")) {
+                    if (ctrlCliente.adicionarClientePessoa(nome, telefone, email, vlrMaxCredito, cpf, peso, altura, rua, bairro, numero, cep, nomeCidade, uf).equals("ok")) {
                         System.out.println("Cliente pessoa adicionado!!");
                     }else{
                         System.out.println("Falha ao adicionar cliente!!");
                     }
+                break;
                 case 2:
                     System.out.println("--- Inclir cliente empresa ---");
                     nome = Prompt.lerLinha("Digite o nome da empresa");
                     telefone = Prompt.lerLinha("Digite a telefone: ");
                     email = Prompt.lerLinha("Digite o email: ");
                     vlrMaxCredito = Prompt.lerDecimal("Digite o valor máximo de crédito: ");
-                    vlrEmprestado = Prompt.lerDecimal("Digite o valor emprestado: ");
                     String cnpj = Prompt.lerLinha("Digite o CNPJ da empresa: ");
                     String inscEstadual = Prompt.lerLinha("Digite a inscrição estadual: ");
                     int anoFundacao = Prompt.lerInteiro("Digite o ano de fundação da empresa: ");
-                    if (ctrlCliente.adicionarClienteEmpresa(nome, telefone, email, vlrMaxCredito, vlrEmprestado, cnpj, inscEstadual, anoFundacao).equals("ok")) {
+                    if (ctrlCliente.adicionarClienteEmpresa(nome, telefone, email, vlrMaxCredito, cnpj, inscEstadual, anoFundacao).equals("ok")) {
                         System.out.println("Cliente empresa registrado com suscesso!!");
                     }else{
                         System.out.println("Falha ao cadastrar cliente!!");
@@ -71,10 +70,24 @@ public class Menu {
                     System.out.println(ctrlCliente.listarClientesEmpresa());
                     break;
                 case 5:
-                   
+                    System.out.println("--- Emprestimo para Cliente Pessoa ---");
+                    cpf = Prompt.lerLinha("Digite o CPF do cliente: ");
+                    double vlrEmprestado = Prompt.lerDecimal("Digite o valor desejado para o empréstimo: ");
+                    if (ctrlCliente.emprestarClientePessoa(vlrEmprestado, cpf).equals("ok")) {
+                            System.out.println("Valor emprestado com suscesso!!");
+                    }else{
+                        System.out.println("Falha ao emprestar, CPF inválido ou limite de crédito atingido!!");
+                    }
                     break;
                 case 6:
-                    
+                    System.out.println("--- Emprréstimo para Clinte Empresa ---");
+                    cnpj = Prompt.lerLinha("Digite o CNPJ da empresa: ");
+                    vlrEmprestado = Prompt.lerDecimal("Digite o valor desejado para o empréstimo: ");
+                    if (ctrlCliente.emprestarClienteEmpresa(vlrEmprestado, cnpj).equals("ok")) {
+                        System.out.println("Valor emprestado com suscesso!!");
+                    }else{
+                        System.out.println("Falha ao emprestar, CNPJ inválido ou limite de crédito atingido!!");
+                    }
                     break;
                 case 7:
                    
@@ -104,7 +117,7 @@ public class Menu {
     
             op = Prompt.lerInteiro();
 
-        } while (op != 6);
+        } while (op != 9);
     }
 
 }

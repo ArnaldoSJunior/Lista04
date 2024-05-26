@@ -13,38 +13,46 @@ public class ControleCliente {
     List<ClientePessoa> listaPessoas = new ArrayList<>();
     List<ClienteEmpresa> listaEmpresas = new ArrayList<>();
 
-    public String adicionarClientePessoa(String nome, String telefone, String email, double vlrMaxCredito, double vlrEmprestado, String cpf, double peso, double altura, String rua, String bairro, int numero, String cep, String nomeCidade, String uF){
-        //Procura pessoa possivel pessoa com o cpf inserido
-        ClientePessoa pessoa = listaPessoas.stream().filter(x -> x.getCpf() == cpf).findFirst().orElse(null);
-        if (pessoa == null) {
-            ClientePessoa clientePessoa = new ClientePessoa(nome, telefone, email, vlrMaxCredito, vlrEmprestado, cpf, peso, altura);
+    public String adicionarClientePessoa(String nome, String telefone, String email, double vlrMaxCredito, String cpf, double peso, double altura, String rua, String bairro, int numero, String cep, String nomeCidade, String uF){
+        long countClientesMesmoCPF = listaPessoas.stream().filter(x -> x.getCpf().equals(cpf)).count();
+        if (countClientesMesmoCPF == 0) {
+            Endereco end = adicionarEndereço(cpf, rua, bairro, numero, cep, nomeCidade, uF);
+            ClientePessoa clientePessoa = new ClientePessoa(nome, telefone, email, vlrMaxCredito, cpf, peso, altura);
             //Adicionar endereço no cliente
-            Endereco end = adicionarEndereço(rua, bairro, numero, cep, nomeCidade, uF);
             if (end != null) {
                 clientePessoa.setEndereco(end);
+                listaPessoas.add(clientePessoa);
+                return "ok";
             }else{
                 return "null";
             }
-            listaPessoas.add(clientePessoa);
-            return "ok";
         }
         return "null";
     }
 
-    public Endereco adicionarEndereço(String rua, String bairro, int numero, String cep, String nomeCidade, String uF){
-        //Adicionar cidade no endereço
-        Cidade cid = adicionarCidade(nomeCidade, uF);
-        if (cid != null) {
-            Endereco endereco = new Endereco(rua, bairro, numero, cep);
-            endereco.setCidade(cid);
-            return endereco;
+    public Endereco adicionarEndereço(String cpf,String rua, String bairro, int numero, String cep, String nomeCidade, String uF){
+        long countClientesMesmoCPF = listaPessoas.stream().filter(x -> x.getCpf().equals(cpf)).count();
+        if (countClientesMesmoCPF == 0) {
+            //Adicionar cidade no endereço
+            Cidade cid = adicionarCidade(cpf, nomeCidade, uF);
+            if (cid != null) {
+                Endereco endereco = new Endereco(rua, bairro, numero, cep);
+                endereco.setCidade(cid);
+                return endereco;
+            }
         }
+
         return null;
     }
 
-    public Cidade adicionarCidade(String nome, String uF){
-        Cidade cidade = new Cidade(nome, uF);
-        return cidade;
+    public Cidade adicionarCidade(String cpf,String nome, String uF){
+        long countClientesMesmoCPF = listaPessoas.stream().filter(x -> x.getCpf().equals(cpf)).count();
+        if (countClientesMesmoCPF == 0) {
+            Cidade cidade = new Cidade(nome, uF);
+            return cidade;
+        }
+        return null;
+        
     }
 
     public String listarClientesPessoas(){
@@ -55,11 +63,11 @@ public class ControleCliente {
         }
     }
 
-    public String adicionarClienteEmpresa(String nome, String telefone, String email, double vlrMaxCredito, double vlrEmprestado,
+    public String adicionarClienteEmpresa(String nome, String telefone, String email, double vlrMaxCredito,
     String cnpj, String inscEstadual, int anoFundacao){
         ClienteEmpresa empresa = listaEmpresas.stream().filter(x -> x.getCnpj() == cnpj).findFirst().orElse(null);
         if (empresa == null) {
-            ClienteEmpresa clienteEmpresa = new ClienteEmpresa(nome, telefone, email, vlrMaxCredito, vlrEmprestado, cnpj, inscEstadual, anoFundacao);
+            ClienteEmpresa clienteEmpresa = new ClienteEmpresa(nome, telefone, email, vlrMaxCredito, cnpj, inscEstadual, anoFundacao);
             listaEmpresas.add(clienteEmpresa);
             return "ok";
         }
@@ -73,6 +81,43 @@ public class ControleCliente {
             return listaEmpresas.toString();
         }
     }
+
+    public String emprestarClientePessoa(double vlrEmpr, String cpf) {
+        ClientePessoa pessoa = listaPessoas.stream()
+                                          .filter(x -> x.getCpf().equals(cpf))
+                                          .findFirst()
+                                          .orElse(null);
+    
+        if (pessoa != null) {
+            if (pessoa.getVlrMaxCredito() >= pessoa.getVlrEmprestado() + vlrEmpr) {
+                pessoa.setVlrEmprestado(pessoa.getVlrEmprestado() + vlrEmpr);
+                return "ok";
+            } else {
+                return "Limite de crédito insuficiente";
+            }
+        } else {
+            return "Cliente não encontrado";
+        }
+    }
+    
+    public String emprestarClienteEmpresa(double vlrEmpr, String cnpj) {
+        ClienteEmpresa empresa = listaEmpresas.stream()
+                                              .filter(x -> x.getCnpj().equals(cnpj))
+                                              .findFirst()
+                                              .orElse(null);
+    
+        if (empresa != null) {
+            if (empresa.getVlrEmprestado() + vlrEmpr <= empresa.getVlrMaxCredito()) {
+                empresa.setVlrEmprestado(empresa.getVlrEmprestado() + vlrEmpr);
+                return "ok";
+            } else {
+                return "Limite de crédito insuficiente";
+            }
+        } else {
+            return "Empresa não encontrada";
+        }
+    }
+    
 
  
 }

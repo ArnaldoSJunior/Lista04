@@ -11,13 +11,11 @@ public abstract class Cliente {
 
     
     
-    public Cliente(String nome, String telefone, String email, double vlrMaxCredito,
-            double vlrEmprestado) {
+    public Cliente(String nome, String telefone, String email, double vlrMaxCredito) {
         this.nome = nome;
         this.telefone = telefone;
         this.email = email;
         this.vlrMaxCredito = vlrMaxCredito;
-        this.vlrEmprestado = vlrEmprestado;
     }
     public String getNome() {
         return nome;
