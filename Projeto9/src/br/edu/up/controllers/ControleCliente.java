@@ -117,7 +117,32 @@ public class ControleCliente {
             return "Empresa não encontrada";
         }
     }
-    
+    public String devolucaoClientePessoa(String cpf, double vlr){
+        ClientePessoa pessoa = listaPessoas.stream()
+                                          .filter(x -> x.getCpf().equals(cpf))
+                                          .findFirst()
+                                          .orElse(null);
+        if (pessoa != null) {
+            if (pessoa.getVlrEmprestado() - vlr >= 0) {
+                pessoa.setVlrEmprestado(pessoa.getVlrEmprestado() - vlr);
+                return "ok";
+            }
+        }
+        return "null";
+    }
+    public String devolucaoClienteEmpresa(String cnpj, double vlr){
+        ClienteEmpresa empresa = listaEmpresas.stream()
+                                              .filter(x -> x.getCnpj().equals(cnpj))
+                                              .findFirst()
+                                              .orElse(null);
+        if (empresa != null) {
+            if (empresa.getVlrEmprestado() - vlr >= 0) {
+                empresa.setVlrEmprestado(empresa.getVlrEmprestado() - vlr);
+                return "ok";
+            }
+        }
+        return "null";
+    }
 
  
 }
