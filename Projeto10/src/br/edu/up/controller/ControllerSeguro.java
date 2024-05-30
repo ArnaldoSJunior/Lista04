@@ -35,4 +35,24 @@ public class ControllerSeguro {
         return "null";  
     }
 
+    public String listarSeguros(){
+        if(listaSeguraVida.size() != 0 && listaSeguroVeiculo.size() != 0){
+            return "Seguro de vida: \n"+listaSeguraVida.toString()+"\nSegura de Veículos: \n"+ listaSeguroVeiculo.toString();
+        }else if(listaSeguraVida.size() != 0){
+            return "Seguro de vida: \n"+listaSeguraVida.toString()+"\nSegura de Veículos: \nNão há seguro de veículos registrados";
+        }else if(listaSeguroVeiculo.size() != 0){
+            return "Seguro de vida: \nNão há seguro de vida registradas"+"\nSegura de Veículos: \n"+ listaSeguroVeiculo.toString();
+        }else{
+            return "Não há clientes cadastrados!!";
+        }
+    }
+
+    // public String listarClientesPessoas(){
+    //     if (listaPessoas.size() == 0) {
+    //         return "Não há clientes cadastrados!!";
+    //     }else{
+    //         return listaPessoas.toString();
+    //     }
+    // }
+
 }

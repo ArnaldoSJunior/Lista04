@@ -29,13 +29,13 @@ public class SeguroVida extends Seguro{
     }
     @Override
     public String toString() {
-        return "SeguroVida [Apólice:" +  super.getApolice()
-                +"\n " + getSegurado()
-                +"\n Valor da Apólice: "+ super.getVlrApolice()
+        return "\nSeguroVida: \n"+getSegurado()
+                +"\n Apólice:" +  super.getApolice()
+                +" Valor da Apólice: "+ super.getVlrApolice()
                 +", Data de Início: "+ super.getDtaInicio()
                 +", Data do Fim: "+ super.getDtaFim()
                 +", Cobre Doenças: "+ getCobreDoenca()
-                +", Cobre Acidentes: "+ getCobreAcidente()+" ]";
+                +", Cobre Acidentes: "+ getCobreAcidente()+"";
     }
     
 
