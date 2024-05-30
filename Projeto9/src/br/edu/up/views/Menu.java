@@ -121,7 +121,7 @@ public class Menu {
                     }
                     break;
                 case 9:
-                    System.out.println("Programa encerrado!!");
+                      System.out.println("Programa encerrado!!");
                     System.exit(0);
                     break;
 

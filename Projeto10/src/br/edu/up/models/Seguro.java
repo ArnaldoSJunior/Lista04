@@ -7,39 +7,53 @@ public abstract class Seguro {
    private String apolice;
    private Segurado segurado;
    private double vlrApolice;
-   private LocalDate dtaInicio;
-   private LocalDate dtaFim;
+   private String dtaInicio;
+   private String dtaFim;
    
-public String getApolice() {
-    return apolice;
-}
-public void setApolice(String apolice) {
+    public Seguro(String apolice, Segurado segurado, double vlrApolice, String dtaInicio, String dtaFim) {
     this.apolice = apolice;
-}
-public Segurado getSegurado() {
-    return segurado;
-}
-public void setSegurado(Segurado segurado) {
     this.segurado = segurado;
-}
-public double getVlrApolice() {
-    return vlrApolice;
-}
-public void setVlrApolice(double vlrApolice) {
     this.vlrApolice = vlrApolice;
-}
-public LocalDate getDtaInicio() {
-    return dtaInicio;
-}
-public void setDtaInicio(LocalDate dtaInicio) {
     this.dtaInicio = dtaInicio;
-}
-public LocalDate getDtaFim() {
-    return dtaFim;
-}
-public void setDtaFim(LocalDate dtaFim) {
     this.dtaFim = dtaFim;
 }
+    public String getApolice() {
+        return apolice;
+    }
+    public void setApolice(String apolice) {
+        this.apolice = apolice;
+    }
+    public Segurado getSegurado() {
+        return segurado;
+    }
+    public void setSegurado(Segurado segurado) {
+        this.segurado = segurado;
+    }
+    public double getVlrApolice() {
+        return vlrApolice;
+    }
+    public void setVlrApolice(double vlrApolice) {
+        this.vlrApolice = vlrApolice;
+    }
+    public String getDtaInicio() {
+        return dtaInicio;
+    }
+    public void setDtaInicio(String dtaInicio) {
+        this.dtaInicio = dtaInicio;
+    }
+    public String getDtaFim() {
+        return dtaFim;
+    }
+    public void setDtaFim(String dtaFim) {
+        this.dtaFim = dtaFim;
+    }
+    @Override
+    public String toString() {
+        return "Seguro [apolice=" + apolice + ", segurado=" + segurado + ", vlrApolice=" + vlrApolice + ", dtaInicio="
+                + dtaInicio + ", dtaFim=" + dtaFim + "]";
+    }
+    
+
    
 
 

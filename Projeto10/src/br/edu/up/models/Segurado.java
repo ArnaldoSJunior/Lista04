@@ -5,12 +5,26 @@ public class Segurado {
     private String nome;
     private String rg;
     private String cpf;
-    private Enum sexo;
+    private String sexo;
     private String telefone;
     private String endereco;
     private String cep;
     private String cidade;
+
     
+    
+    public Segurado(String nome, String rg, String cpf, String sexo, String telefone, String endereco, String cep,
+            String cidade) {
+        this.nome = nome;
+        this.rg = rg;
+        this.cpf = cpf;
+        this.sexo = sexo;
+        this.telefone = telefone;
+        this.endereco = endereco;
+        this.cep = cep;
+        this.cidade = cidade;
+    }
+
     public String getNome() {
         return nome;
     }
@@ -29,10 +43,10 @@ public class Segurado {
     public void setCpf(String cpf) {
         this.cpf = cpf;
     }
-    public Enum getSexo() {
+    public String getSexo() {
         return sexo;
     }
-    public void setSexo(Enum sexo) {
+    public void setSexo(String sexo) {
         this.sexo = sexo;
     }
     public String getTelefone() {
