@@ -21,12 +21,54 @@ public class MenuPrincipal {
         do {
              switch (op) {
                 case 1:
-                Prompt.imprimir("Tipo de seguro?");
-            int escolha=  Prompt.lerInteiro("1. Seguro de vida   2.Seguro veiculo?");
-            
+                     Prompt.imprimir("Tipo de seguro?");
+                    int escolha=  Prompt.lerInteiro(" 1.Seguro de vida \n 2.Seguro veiculo \n 3.Voltar");
+                         if(escolha == 1){
+                             incluirSegVida();
+                        }else if(escolha == 2){
+                             incluirSeguroV();
+                        }else if(escolha == 3){
+                            mostrar();
+                        }
+                             break;
+                case 2:
 
-    if(escolha == 1){
-                 // String apolice, String nome, String rg, String cpf, String sexo, String telefone, String endereco, String cep,
+                break;
+                case 3:
+
+                break;
+                case 4:
+
+                break;
+                case 5:
+                    System.out.println(ctrlSeguro.listarSeguros());
+                break;
+                case 6:
+
+                break;
+                case 7:
+
+                break;
+            
+                default:
+                    break;
+            }
+            System.out.println("----- MENU -----");
+            System.out.println();
+            System.out.println("1. Incluir Seguro");
+            System.out.println("2. Localizar seguro");
+            System.out.println("3. Excluir seguro");
+            System.out.println("4. Excluir todos os seguros");
+            System.out.println("5. Listar todos os seguros");
+            System.out.println("6. Ver quantidade de seguros");
+            System.out.println("7. Sair");
+
+            op = Prompt.lerInteiro();
+        } while (op != 7);
+        
+    }
+public void incluirSegVida(){
+      // String apolice, String nome, String rg, String cpf, String sexo, String telefone, String endereco, String cep,
                 // String cidade , double vlrApolice, String dtaInicio, String dtaFim, boolean cobreDoenca, boolean cobreAcidente
                 System.out.println("--- Incluir Seguro ---");
                 String apolice = Prompt.lerLinha("Digite a apólice do seguro: ");
@@ -64,51 +106,18 @@ public class MenuPrincipal {
                 }else{
                     System.out.println("Falha ao registrar seguro!!");
                 } 
-    }else if(escolha == 2){
-               incluirSeguroV();
-
-             }
 
 
 
-              
-                    break;
-                case 2:
+}
 
-                break;
-                case 3:
 
-                break;
-                case 4:
 
-                break;
-                case 5:
-                    System.out.println(ctrlSeguro.listarSeguros());
-                break;
-                case 6:
 
-                break;
-                case 7:
 
-                break;
-            
-                default:
-                    break;
-            }
-            System.out.println("----- MENU -----");
-            System.out.println();
-            System.out.println("1. Incluir Seguro");
-            System.out.println("2. Localizar seguro");
-            System.out.println("3. Excluir seguro");
-            System.out.println("4. Excluir todos os seguros");
-            System.out.println("5. Listar todos os seguros");
-            System.out.println("6. Ver quantidade de seguros");
-            System.out.println("7. Sair");
 
-            op = Prompt.lerInteiro();
-        } while (op != 7);
-        
-    }
+
+
 
 public void incluirSeguroV(){
 
@@ -126,7 +135,7 @@ public void incluirSeguroV(){
     String dataInicio = Prompt.lerLinha("Digite a data de início: ");
     String dataFim = Prompt.lerLinha("Digite a data de termino: ");
     double vlrFranquia = Prompt.lerDecimal("Informe o valor da franquia: ");
-    String temCarroReserva = Prompt.lerLinha("Possui carro reserva? (s)sim ou (n)nao");
+    String temCarroReserva = Prompt.lerLinha("Possui carro reserva? (s)sim ou (n)nao").toLowerCase()                ;
     boolean carroReserva = true;
      if (temCarroReserva.equals("S")) {
         carroReserva = true;
@@ -135,7 +144,7 @@ public void incluirSeguroV(){
     }else{
         System.out.println("Opção inválida!!");
     }
-    String cobreVidros = Prompt.lerLinha("(s)sim ou (n)nao ");
+    String cobreVidros = Prompt.lerLinha("Cobre os vidros? (s)sim ou (n)nao?").toLowerCase();
     boolean vidros = true;
     if (cobreVidros.equals("S")) {
         vidros = true;
@@ -144,9 +153,6 @@ public void incluirSeguroV(){
     }else{
         System.out.println("Opção inválida!!");
     }
-    
-   
-
     if (ctrlSeguro.incluirSeguroVeiculo(apolice, nome, rg, cpf, sexo, telefone, endereco, cep, cidade, vlrApolice, dataInicio, dataFim, vlrFranquia, carroReserva, vidros).equals("ok")) {
         System.out.println("Seguro adicionado com suscesso!!");
     }else{

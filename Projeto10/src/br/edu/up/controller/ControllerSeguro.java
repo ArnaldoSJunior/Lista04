@@ -43,11 +43,13 @@ public class ControllerSeguro {
             if(veiculo != null){
                 SeguroVeiculo seguroVeiculo = new SeguroVeiculo(apolice, veiculo, vlrApolice, dtaInicio, dtaFim, vlrFranquia, temCarroReserva, cobreVidros);
                 seguroVeiculo.setSegurado(veiculo);
-                listaSeguroVeiculo.add(seguroVeiculo);             
+                listaSeguroVeiculo.add(seguroVeiculo);
+                return "ok"; // Alteração aqui
             }
         }
         return "null";
     }
+
  
 
 
