@@ -35,6 +35,22 @@ public class ControllerSeguro {
         return "null";  
     }
 
+    public String incluirSeguroVeiculo(String apolice, String nome, String rg, String cpf, String sexo, String telefone, String endereco, String cep,
+    String cidade , double vlrApolice, String dtaInicio, String dtaFim, double vlrFranquia, boolean temCarroReserva, boolean cobreVidros){
+        Long countSeguroMesmoApolice = listaSeguraVida.stream().filter(x -> x.getApolice().equals(apolice)).count();
+        if(countSeguroMesmoApolice == 0){
+            Segurado veiculo = incluirSegurado(nome, rg, cpf, sexo, telefone, endereco, cep, cidade);
+            if(veiculo != null){
+                SeguroVeiculo seguroVeiculo = new SeguroVeiculo(apolice, veiculo, vlrApolice, dtaInicio, dtaFim, vlrFranquia, temCarroReserva, cobreVidros);
+                seguroVeiculo.setSegurado(veiculo);
+                listaSeguroVeiculo.add(seguroVeiculo);             
+            }
+        }
+        return "null";
+    }
+ 
+
+
     public String listarSeguros(){
         if(listaSeguraVida.size() != 0 && listaSeguroVeiculo.size() != 0){
             return "Seguro de vida: \n"+listaSeguraVida.toString()+"\nSegura de Veículos: \n"+ listaSeguroVeiculo.toString();
@@ -46,6 +62,14 @@ public class ControllerSeguro {
             return "Não há clientes cadastrados!!";
         }
     }
+
+
+    
+
+
+
+
+
 
     // public String listarClientesPessoas(){
     //     if (listaPessoas.size() == 0) {
