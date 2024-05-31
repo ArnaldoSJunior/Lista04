@@ -50,8 +50,6 @@ public class ControllerSeguro {
         return "null";
     }
 
- 
-
 
     public String listarSeguros(){
         if(listaSeguraVida.size() != 0 && listaSeguroVeiculo.size() != 0){
@@ -63,6 +61,21 @@ public class ControllerSeguro {
         }else{
             return "Não há clientes cadastrados!!";
         }
+    }
+
+    public String excluirSeguro(String apolice){
+        SeguroVida seguroVida = listaSeguraVida.stream().filter(x ->x.getApolice().equals(apolice)).findFirst().orElse(null);
+        SeguroVeiculo seguroVeiculo = listaSeguroVeiculo.stream().filter(x ->x.getApolice().equals(apolice)).findFirst().orElse(null);
+        if (seguroVida != null) {
+            listaSeguraVida.remove(seguroVida);
+            return "ok";
+        }
+        if(seguroVeiculo != null){
+            listaSeguroVeiculo.remove(seguroVeiculo);
+            return "ok";
+        }
+        return "null";
+
     }
 
 
