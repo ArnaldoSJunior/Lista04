@@ -21,7 +21,7 @@ public class MenuPrincipal {
         do {
              switch (op) {
                 case 1:
-                     Prompt.imprimir("Tipo de seguro?");
+                    Prompt.imprimir("Tipo de seguro?");
                     int escolha=  Prompt.lerInteiro(" 1.Seguro de vida \n 2.Seguro veiculo \n 3.Voltar");
                          if(escolha == 1){
                              incluirSegVida();
@@ -35,6 +35,13 @@ public class MenuPrincipal {
 
                 break;
                 case 3:
+                System.out.println("--- Excluir Seguro ---");
+                String apolice = Prompt.lerLinha("Digite a apólice do seguro: ");
+                if (ctrlSeguro.excluirSeguro(apolice).equals("ok")) {
+                    System.out.println("Seguro excluido com susceso!!");
+                }else{
+                    System.out.println("Falha ao excluir seguro!!");
+                }
 
                 break;
                 case 4:
@@ -67,46 +74,47 @@ public class MenuPrincipal {
         } while (op != 7);
         
     }
-public void incluirSegVida(){
-      // String apolice, String nome, String rg, String cpf, String sexo, String telefone, String endereco, String cep,
-                // String cidade , double vlrApolice, String dtaInicio, String dtaFim, boolean cobreDoenca, boolean cobreAcidente
-                System.out.println("--- Incluir Seguro ---");
-                String apolice = Prompt.lerLinha("Digite a apólice do seguro: ");
-                String nome = Prompt.lerLinha("Digite o nome do segurado: ");
-                String rg = Prompt.lerLinha("Digite o RG: ");
-                String cpf = Prompt.lerLinha("Digite o CPF: ");
-                String sexo = Prompt.lerLinha("Digite o seu sexo: (M : Masculino / F: Feminino / O: Outros)");
-                String telefone = Prompt.lerLinha("Digite o telefone: ");
-                String endereco = Prompt.lerLinha("Digite o seu endereço(Rua)");
-                String cep = Prompt.lerLinha("Digite o seu CEP: ");
-                String cidade = Prompt.lerLinha("Digite a cidade do seu endereço: ");
-                double vlrApolice = Prompt.lerDecimal("Digite o valor da apólice: ");
-                String dataInicio = Prompt.lerLinha("Digite a data de início: ");
-                String dataFim = Prompt.lerLinha("Digite a data de termino: ");
-                String cobreDoenca = Prompt.lerLinha("Cobre doenças? (S/N)");
-                boolean doenca = true;
-                if (cobreDoenca.equals("S")) {
-                    doenca = true;
-                }else if(cobreDoenca.equals("N")){
-                    doenca = false;
-                }else{
-                    System.out.println("Opção inválida!!");
-                }
-                String cobreAcidente = Prompt.lerLinha("Cobre acidentes? (S/N)");
-                boolean acidente = true;
-                if (cobreAcidente.equals("S")) {
-                    acidente = true;
-                }else if (cobreAcidente.equals("N")){
-                    acidente = false;
-                }else{
-                    System.out.println("Opção inválida!!");
-                }
-                if (ctrlSeguro.incluirSeguroVida(apolice, nome, rg, cpf, sexo, telefone, endereco, cep, cidade, vlrApolice, dataInicio, dataFim, doenca, acidente).equals("ok")) {
-                    System.out.println("Seguro adicionado com suscesso!!");
-                }else{
-                    System.out.println("Falha ao registrar seguro!!");
-                } 
+    public void incluirSegVida(){
+        // String apolice, String nome, String rg, String cpf, String sexo, String telefone, String endereco, String cep,
+        // String cidade , double vlrApolice, String dtaInicio, String dtaFim, boolean cobreDoenca, boolean cobreAcidente
+        System.out.println("--- Incluir Seguro ---");
+        String apolice = Prompt.lerLinha("Digite a apólice do seguro: ");
+        String nome = Prompt.lerLinha("Digite o nome do segurado: ");
+        String rg = Prompt.lerLinha("Digite o RG: ");
+        String cpf = Prompt.lerLinha("Digite o CPF: ");
+        String sexo = Prompt.lerLinha("Digite o seu sexo: (M : Masculino / F: Feminino / O: Outros)");
+        String telefone = Prompt.lerLinha("Digite o telefone: ");
+        String endereco = Prompt.lerLinha("Digite o seu endereço(Rua)");
+        String cep = Prompt.lerLinha("Digite o seu CEP: ");
+        String cidade = Prompt.lerLinha("Digite a cidade do seu endereço: ");
+        double vlrApolice = Prompt.lerDecimal("Digite o valor da apólice: ");
+        String dataInicio = Prompt.lerLinha("Digite a data de início: ");
+        String dataFim = Prompt.lerLinha("Digite a data de termino: ");
+        String cobreDoenca = Prompt.lerLinha("Cobre doenças? (S/N)");
+        boolean doenca = true;
+        if (cobreDoenca.equals("S")) {
+            doenca = true;
+        }else if(cobreDoenca.equals("N")){
+            doenca = false;
+        }else{
+            System.out.println("Opção inválida!!");
+        }
+        String cobreAcidente = Prompt.lerLinha("Cobre acidentes? (S/N)");
+        boolean acidente = true;
+        if (cobreAcidente.equals("S")) {
+            acidente = true;
+        }else if (cobreAcidente.equals("N")){
+            acidente = false;
+        }else{
+            System.out.println("Opção inválida!!");
+        }
+        if (ctrlSeguro.incluirSeguroVida(apolice, nome, rg, cpf, sexo, telefone, endereco, cep, cidade, vlrApolice, dataInicio, dataFim, doenca, acidente).equals("ok")) {
+            System.out.println("Seguro adicionado com suscesso!!");
+        }else{
+            System.out.println("Falha ao registrar seguro!!");
+        } 
 
+<<<<<<< HEAD
 }
 
 public void incluirSeguroV(){
@@ -133,27 +141,48 @@ public void incluirSeguroV(){
         carroReserva = false;
     }else{
         System.out.println("Opção inválida!!");
+=======
+>>>>>>> 45639ac7cfc105e29e2a6f4689de7e276336c464
     }
-    String cobreVidros = Prompt.lerLinha("Cobre os vidros? (s)sim ou (n)nao?").toLowerCase();
-    boolean vidros = true;
-    if (cobreVidros.equals("S")) {
-        vidros = true;
-    }else if (cobreVidros.equals("N")){
-        vidros = false;
-    }else{
-        System.out.println("Opção inválida!!");
+
+    public void incluirSeguroV(){
+
+        System.out.println("--- Incluir Seguro ---");
+        String apolice = Prompt.lerLinha("Digite a apólice do seguro: ");
+        String nome = Prompt.lerLinha("Digite o nome do segurado: ");
+        String rg = Prompt.lerLinha("Digite o RG: ");
+        String cpf = Prompt.lerLinha("Digite o CPF: ");
+        String sexo = Prompt.lerLinha("Digite o seu sexo: (M : Masculino / F: Feminino / O: Outros)");
+        String telefone = Prompt.lerLinha("Digite o telefone: ");
+        String endereco = Prompt.lerLinha("Digite o seu endereço(Rua)");
+        String cep = Prompt.lerLinha("Digite o seu CEP: ");
+        String cidade = Prompt.lerLinha("Digite a cidade do seu endereço: ");
+        double vlrApolice = Prompt.lerDecimal("Digite o valor da apólice: ");
+        String dataInicio = Prompt.lerLinha("Digite a data de início: ");
+        String dataFim = Prompt.lerLinha("Digite a data de termino: ");
+        double vlrFranquia = Prompt.lerDecimal("Informe o valor da franquia: ");
+        String temCarroReserva = Prompt.lerLinha("Possui carro reserva? (s)sim ou (n)nao").toLowerCase()                ;
+        boolean carroReserva = true;
+        if (temCarroReserva.equals("S")) {
+            carroReserva = true;
+        }else if(temCarroReserva.equals("N")){
+            carroReserva = false;
+        }else{
+            System.out.println("Opção inválida!!");
+        }
+        String cobreVidros = Prompt.lerLinha("Cobre os vidros? (s)sim ou (n)nao?").toLowerCase();
+        boolean vidros = true;
+        if (cobreVidros.equals("S")) {
+            vidros = true;
+        }else if (cobreVidros.equals("N")){
+            vidros = false;
+        }else{
+            System.out.println("Opção inválida!!");
+        }
+        if (ctrlSeguro.incluirSeguroVeiculo(apolice, nome, rg, cpf, sexo, telefone, endereco, cep, cidade, vlrApolice, dataInicio, dataFim, vlrFranquia, carroReserva, vidros).equals("ok")) {
+            System.out.println("Seguro adicionado com suscesso!!");
+        }else{
+            System.out.println("Falha ao registrar seguro!!");
+        } 
     }
-    if (ctrlSeguro.incluirSeguroVeiculo(apolice, nome, rg, cpf, sexo, telefone, endereco, cep, cidade, vlrApolice, dataInicio, dataFim, vlrFranquia, carroReserva, vidros).equals("ok")) {
-        System.out.println("Seguro adicionado com suscesso!!");
-    }else{
-        System.out.println("Falha ao registrar seguro!!");
-    } 
-
-
-}
-
-
-
-
-
 }
