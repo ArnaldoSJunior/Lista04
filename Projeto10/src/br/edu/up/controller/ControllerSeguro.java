@@ -7,12 +7,12 @@ import br.edu.up.models.*;
 
 public class ControllerSeguro {
 
-    List<SeguroVida> listaSeguraVida = new ArrayList<>();
+    List<SeguroVida> listaSeguroVida = new ArrayList<>();
     List<SeguroVeiculo> listaSeguroVeiculo = new ArrayList<>();
 
     public Segurado incluirSegurado(String nome, String rg, String cpf, String sexo, String telefone, String endereco, String cep,
     String cidade){
-        long countSeguradoMesmoCPF = listaSeguraVida.stream().filter(x -> x.getSegurado().getCpf().equals(cpf)).count();
+        long countSeguradoMesmoCPF = listaSeguroVida.stream().filter(x -> x.getSegurado().getCpf().equals(cpf)).count();
         if (countSeguradoMesmoCPF == 0) {
             Segurado segurado = new Segurado(nome, rg, cpf, sexo, telefone, endereco, cep, cidade);
             return segurado;
@@ -22,22 +22,23 @@ public class ControllerSeguro {
 
     public String incluirSeguroVida(String apolice, String nome, String rg, String cpf, String sexo, String telefone, String endereco, String cep,
     String cidade , double vlrApolice, String dtaInicio, String dtaFim, boolean cobreDoenca, boolean cobreAcidente){
-        Long countSeguroMesmoApolice = listaSeguraVida.stream().filter(x -> x.getApolice().equals(apolice)).count();
+        Long countSeguroMesmoApolice = listaSeguroVida.stream().filter(x -> x.getApolice().equals(apolice)).count();
         if (countSeguroMesmoApolice == 0) {
             Segurado seg = incluirSegurado(nome, rg, cpf, sexo, telefone, endereco, cep, cidade);
             if (seg != null) {
                 SeguroVida seguroVida = new SeguroVida(apolice, seg, vlrApolice, dtaInicio, dtaFim, cobreDoenca, cobreAcidente);
                 seguroVida.setSegurado(seg);
-                listaSeguraVida.add(seguroVida);
+                listaSeguroVida.add(seguroVida);
                 return "ok";
             }
         }
         return "null";  
     }
 
+
     public String incluirSeguroVeiculo(String apolice, String nome, String rg, String cpf, String sexo, String telefone, String endereco, String cep,
     String cidade , double vlrApolice, String dtaInicio, String dtaFim, double vlrFranquia, boolean temCarroReserva, boolean cobreVidros){
-        Long countSeguroMesmoApolice = listaSeguraVida.stream().filter(x -> x.getApolice().equals(apolice)).count();
+        Long countSeguroMesmoApolice = listaSeguroVida.stream().filter(x -> x.getApolice().equals(apolice)).count();
         if(countSeguroMesmoApolice == 0){
             Segurado veiculo = incluirSegurado(nome, rg, cpf, sexo, telefone, endereco, cep, cidade);
             if(veiculo != null){
@@ -50,24 +51,39 @@ public class ControllerSeguro {
         return "null";
     }
 
-
-    public String listarSeguros(){
-        if(listaSeguraVida.size() != 0 && listaSeguroVeiculo.size() != 0){
-            return "Seguro de vida: \n"+listaSeguraVida.toString()+"\nSegura de Veículos: \n"+ listaSeguroVeiculo.toString();
-        }else if(listaSeguraVida.size() != 0){
-            return "Seguro de vida: \n"+listaSeguraVida.toString()+"\nSegura de Veículos: \nNão há seguro de veículos registrados";
-        }else if(listaSeguroVeiculo.size() != 0){
-            return "Seguro de vida: \nNão há seguro de vida registradas"+"\nSegura de Veículos: \n"+ listaSeguroVeiculo.toString();
-        }else{
-            return "Não há clientes cadastrados!!";
+    public  Seguro localizarSeguro(String apolice) {
+        for (Seguro seguro : listaSeguroVida) {
+            if (seguro.getApolice().equals(apolice)) {
+                return seguro;
+            }
         }
+        for (Seguro seguro : listaSeguroVeiculo) {
+            if (seguro.getApolice().equals(apolice)) {
+                return seguro; 
+            }
+        }
+        return null; 
     }
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     public String excluirSeguro(String apolice){
-        SeguroVida seguroVida = listaSeguraVida.stream().filter(x ->x.getApolice().equals(apolice)).findFirst().orElse(null);
+        SeguroVida seguroVida = listaSeguroVida.stream().filter(x ->x.getApolice().equals(apolice)).findFirst().orElse(null);
         SeguroVeiculo seguroVeiculo = listaSeguroVeiculo.stream().filter(x ->x.getApolice().equals(apolice)).findFirst().orElse(null);
         if (seguroVida != null) {
-            listaSeguraVida.remove(seguroVida);
+            listaSeguroVida.remove(seguroVida);
             return "ok";
         }
         if(seguroVeiculo != null){
@@ -76,6 +92,21 @@ public class ControllerSeguro {
         }
         return "null";
 
+    }
+
+ 
+
+
+    public String listarSeguros(){
+        if(listaSeguroVida.size() != 0 && listaSeguroVeiculo.size() != 0){
+            return "Seguro de vida: \n"+listaSeguroVida.toString()+"\nSeguro de Veículos: \n"+ listaSeguroVeiculo.toString();
+        }else if(listaSeguroVida.size() != 0){
+            return "Seguro de vida: \n"+listaSeguroVida.toString()+"\nSeguro de Veículos: \nNão há seguro de veículos registrados";
+        }else if(listaSeguroVeiculo.size() != 0){
+            return "Seguro de vida: \nNão há seguro de vida registradas"+"\nSegura de Veículos: \n"+ listaSeguroVeiculo.toString();
+        }else{
+            return "Não há clientes cadastrados!!";
+        }
     }
 
 

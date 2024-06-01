@@ -160,19 +160,18 @@ public void incluirSeguroV(){
 
 }
 
-public void localizarSeg(){
-
-    String  numApolice = Prompt.lerLinha("Informe o numero da apolice:");
-            Seguro seguroEncontrado = ctrlSeguro.localizarSeguro(numApolice);
-            if (seguroEncontrado != null) {
-                System.out.println("Seguro encontrado:");
-                System.out.println(seguroEncontrado);
-            } else {
-                System.out.println("Nenhum seguro encontrado com o número da apólice fornecido.");
-            }
-           
+public void localizarSeg() {
+    String numApolice = Prompt.lerLinha("Informe o número da apólice:");
+    Seguro seguroEncontrado = ctrlSeguro.localizarSeguro(numApolice);
+    if (seguroEncontrado != null) {
+        System.out.println("Seguro encontrado:");
+        System.out.println(seguroEncontrado);
+    } else {
+        System.out.println("Nenhum seguro encontrado com o número da apólice fornecido.");
+    }
 }
 
+    
 
 
 
