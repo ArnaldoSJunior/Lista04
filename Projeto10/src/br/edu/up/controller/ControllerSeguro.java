@@ -64,24 +64,6 @@ public class ControllerSeguro {
         }
         return null; 
     }
-    
-
-public void excluirTodosSeguros(){
-    System.out.println("Excluindo todos os seguros...");
-    listaSeguroVida.clear();
-    listaSeguroVeiculo.clear();
-    System.out.println("Todos os seguros foram excluídos.");
-}
-
-
-
-
-
-
-
-
-
-
 
 
     public String excluirSeguro(String apolice){
@@ -99,7 +81,13 @@ public void excluirTodosSeguros(){
 
     }
 
- 
+    public void excluirTodosSeguros(){
+        System.out.println("Excluindo todos os seguros...");
+        listaSeguroVida.clear();
+        listaSeguroVeiculo.clear();
+        System.out.println("Todos os seguros foram excluídos.");
+    }
+    
 
 
     public String listarSeguros(){
@@ -114,7 +102,10 @@ public void excluirTodosSeguros(){
         }
     }
 
-
+    public int obterQuantidadeSeguros() {
+        return listaSeguroVida.size() + listaSeguroVeiculo.size();
+    }
+    
     
 
 

@@ -19,15 +19,19 @@ public class MenuPrincipal {
         System.out.println("7. Sair");
 
         int op = Prompt.lerInteiro();
+       
         do {
              switch (op) {
                 case 1:
+                
                      Prompt.imprimir("Tipo de seguro?");
                      int escolha=  Prompt.lerInteiro(" 1.Seguro de vida \n 2.Seguro veiculo \n 3.Voltar");
                          if(escolha == 1){
                              incluirSegVida();
+                             
                         }else if(escolha == 2){
                              incluirSeguroV();
+                           
                         }else if(escolha == 3){
                              mostrar();
                         }
@@ -51,7 +55,8 @@ public class MenuPrincipal {
                     System.out.println(ctrlSeguro.listarSeguros());
                 break;
                 case 6:
-
+                int quantidadeSeguros = ctrlSeguro.obterQuantidadeSeguros();
+                System.out.println("Quantidade de seguros: " + quantidadeSeguros);
                 break;
                 case 7:
                     System.exit(0);
@@ -162,6 +167,7 @@ public void localizarSeg() {
         System.out.println("Nenhum seguro encontrado com o número da apólice fornecido.");
     }
 }
+
 
     
 
