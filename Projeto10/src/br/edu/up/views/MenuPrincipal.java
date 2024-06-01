@@ -107,17 +107,7 @@ public void incluirSegVida(){
                     System.out.println("Falha ao registrar seguro!!");
                 } 
 
-
-
 }
-
-
-
-
-
-
-
-
 
 public void incluirSeguroV(){
 
