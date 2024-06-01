@@ -66,7 +66,12 @@ public class ControllerSeguro {
     }
     
 
-
+public void excluirTodosSeguros(){
+    System.out.println("Excluindo todos os seguros...");
+    listaSeguroVida.clear();
+    listaSeguroVeiculo.clear();
+    System.out.println("Todos os seguros foram excluídos.");
+}
 
 
 

@@ -45,8 +45,8 @@ public class MenuPrincipal {
                 }
                 break;
                 case 4:
-
-                break;
+               ctrlSeguro.excluirTodosSeguros();
+                      break;
                 case 5:
                     System.out.println(ctrlSeguro.listarSeguros());
                 break;
@@ -60,15 +60,7 @@ public class MenuPrincipal {
                 default:
                     break;
             }
-            System.out.println("----- MENU -----");
-            System.out.println();
-            System.out.println("1. Incluir Seguro");
-            System.out.println("2. Localizar seguro");
-            System.out.println("3. Excluir seguro");
-            System.out.println("4. Excluir todos os seguros");
-            System.out.println("5. Listar todos os seguros");
-            System.out.println("6. Ver quantidade de seguros");
-            System.out.println("7. Sair");
+            mostrar();
 
             op = Prompt.lerInteiro();
     } while (op != 7);
